@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   def index
     #show all reservations for that user
+    @reservations = Reservation.all
   end
 
   def show
@@ -21,9 +22,27 @@ class ReservationsController < ApplicationController
 
   def new
     #make a reservation
+    @reservation = Reservation.new()
   end
 
   def create
     #make a reservation
+    @reservation = Reservation.new(reservation_params)
+    if @reservation.save
+      redirect_to @reservation
+    else
+      render :new
+    end
   end
+
+  private
+
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
+
+  def reservation_params
+    params.require(:reservation).permit(:start_time, :end_time, :notes, :count, :status, :user_id, :boat_id)
+  end
+
 end
