@@ -1,0 +1,62 @@
+/* Banner design */
+.banner {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+/* Your form design */
+// .text-center {
+//   font-weight: bold;
+//   padding:10px;
+// }
+
+// .form-group {
+//   margin-bottom: 15px;
+// }
+
+.location {
+  font-weight: 300;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+#booking {
+  position: absolute;
+  color: #b88525;
+  bottom: 40px;
+  width: 1060px;
+  height: 102px;
+  z-index: 10;
+  background: rgba(247,247,244,0.8);
+}
+
+.book-online {
+  background: #fbfaf8;
+  color: #b88525;
+  font-weight: 300;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  border: none;
+  font-size: 14px;
+  height: 40px;
+  cursor: pointer;
+    // display: block;
+    -webkit-appearance: none;
+
+  }
