@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :boats
   has_many :reservations
-  has_many :reviews, through: :reservations
+  has_many :reviews
 
   validates :first_name, presence: :true
   validates :last_name, presence: :true
