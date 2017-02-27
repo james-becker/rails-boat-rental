@@ -4,6 +4,7 @@ class Boat < ApplicationRecord
 
   belongs_to :user
   has_many :reviews
+  has_attachments :photos, maximum: 10
 
   validates :description, presence: true
   validates :category, presence: true, inclusion: {in: CATEGORIES}
@@ -11,4 +12,5 @@ class Boat < ApplicationRecord
   validates :price, numericality: true, presence: true
   validates :location, presence: true
   validates :name, presence: true
+  validates :photos, presence: true
 end
