@@ -4,10 +4,10 @@ class User < ApplicationRecord
   has_many :reviews
   has_attachment :photo, maximum: 1
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :address, presence: true
-  validates :age, presence: true, numericality: {only_integer: true}
+  validates :first_name, presence: :true
+  validates :last_name, presence: :true
+  validates :address, presence: :true
+  validates :dob, presence: :true, numericality: {only_integer: :true}
   validates :photo, presence: true
 
   # Include default devise modules. Others available are:
