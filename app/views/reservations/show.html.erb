@@ -1,2 +1,15 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<p> Reservation start time</p> <%= @reservation.start_time %>
+<p> Reservation end time</p> <%= @reservation.end_time %>
+<p> Reservation notes</p> <%= @reservation.notes %>
+<p> People for this trip: </p> <%= @reservation.count %>
+
+<p> You are <%= @reservation.status %> with your visit to <%= link_to @boat.name, @boat %> </p>
+<%= link_to "edit", edit_reservation_path(@reservation) %>
+<%= link_to "delete", reservation_path(@reservation), method: :delete %>
+<br>
+<% @boat.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
+
+
+
