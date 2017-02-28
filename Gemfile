@@ -12,6 +12,7 @@ gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
@@ -22,6 +23,7 @@ gem 'coffee-rails'
 gem 'faker', '~> 1.4', '>= 1.4.3'
 
 gem 'devise'
+
 
 group :development, :test do
   gem 'binding_of_caller'
