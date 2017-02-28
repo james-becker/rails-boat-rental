@@ -1,11 +1,11 @@
 require 'faker'
 
-5.times do |i|
+10.times do |i|
 
   user = User.new
   user.first_name = Faker::Name.first_name
   user.last_name = Faker::Name.last_name
-  user.dob = "2017/11/09"
+  user.dob = "01/01/2000"
   user.password = "password"
   user.photo_url = "http://lorempixel.com/400/200/people/"
   user.email = Faker::Internet.email
@@ -21,9 +21,10 @@ require 'faker'
     boat.name = Faker::Name.first_name
     boat.user = user
     boat.photo_urls = [
-Faker::LoremPixel.image("300x500"),
-Faker::LoremPixel.image("300x500"),
-Faker::LoremPixel.image("300x500")]
+      Faker::LoremPixel.image("300x500"),
+      Faker::LoremPixel.image("300x500"),
+      Faker::LoremPixel.image("300x500")
+    ]
     boat.save!
   end
 
