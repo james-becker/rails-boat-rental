@@ -22,6 +22,7 @@ gem 'coffee-rails'
 gem 'faker', '~> 1.4', '>= 1.4.3'
 
 gem 'devise'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'binding_of_caller'

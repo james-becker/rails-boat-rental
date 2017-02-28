@@ -1,12 +1,22 @@
 require 'faker'
 
+User.create({
+  first_name: "James",
+  last_name: "Becker",
+  dob: "01/01/2000",
+  password: "123456",
+  photo_url: "http://lorempixel.com/400/200/people/",
+  email: "john@lennon.com"
+});
+
+
+
 10.times do |i|
 
   user = User.new
   user.first_name = Faker::Name.first_name
   user.last_name = Faker::Name.last_name
-  user.address = Faker::Address.street_address
-  user.age = Faker::Number.number(2)
+  user.dob = "01/01/2000"
   user.password = "password"
   user.photo_url = "http://lorempixel.com/400/200/people/"
   user.email = Faker::Internet.email
@@ -22,9 +32,10 @@ require 'faker'
     boat.name = Faker::Name.first_name
     boat.user = user
     boat.photo_urls = [
-Faker::LoremPixel.image("300x500"),
-Faker::LoremPixel.image("300x500"),
-Faker::LoremPixel.image("300x500")]
+      Faker::LoremPixel.image("300x500"),
+      Faker::LoremPixel.image("300x500"),
+      Faker::LoremPixel.image("300x500")
+    ]
     boat.save!
   end
 
