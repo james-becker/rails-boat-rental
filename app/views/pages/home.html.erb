@@ -11,30 +11,24 @@
         </div>
 
 
-<!--         <form class="navbar-form form-inline search-form" role="search" action="" method="">
-          <div class="form-group">
-            <input type="text" class="form-control location" name="location" placeholder="Location">
-          </div>
-          <button type="submit" class="book-online">Book now
-            </button>
-          </form> -->
 
-          <div class = "navbar-form form-inline search-form form-group">
+
+        <div class = "navbar-form form-inline search-form form-group">
           <%= simple_form_for @boat, default: {url: boats_path, method: :get} do |f| %>
-            <div class="form-control location">
-              <%= f.input :location, placeholder:"Location...", input_html: {location: 'location'} %>
-            </div>
-            <div class="book-online">
-              <%= f.button :submit, value: "Book now" %>
-            </div>
-            <% end %>
-          </div>
 
+          <%= f.input :location, placeholder:"Location...",label: false, input_html: {location: 'location', class: 'location'} %>
+
+
+          <%= f.button :submit, value: "Book now", class: 'button-book-online'%>
+
+          <% end %>
         </div>
 
       </div>
+
     </div>
   </div>
+</div>
 
 
 
@@ -43,138 +37,105 @@
 
 
 
-  <!-- Our selection code -->
+<!-- Our selection code -->
 
 
-  <div class="wrapper">
-    <div class="container padded">
-      <h3 class=text-center>Our selection</h3>
-      <div class="row">
+<div class="wrapper">
+  <div class="container padded">
+    <h3 class=text-center>Our selection</h3>
+    <div class="row">
 
-        <div class= "col-sm-4">
-          <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boats.first.photos.first.path %>);">
-          <div class="card-link card-city">
-            <%= link_to "Boat1", boat_path(boat) %>
-          </div>
-            <div class="card-description">Text</div>
-            <div>
-              <img src="images/anne.jpg" alt="Anne" class="img-circle avatar">
-            </div>
-          </div>
-        </div>
 
-        <div class= "col-sm-4">
-          <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boats[2].first.photos.first.path %>);">
-          <div class="card-link card-city">
-            <%= link_to "Boat1", boat_path(boat) %>
-          </div>
-            <div class="card-description">Text</div>
-            <div>
-              <img src="images/anne.jpg" alt="Anne" class="img-circle avatar">
-            </div>
-          </div>
-        </div>
-
-        <div class= "col-sm-4">
-          <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boats.last.photos.first.path %>);">
-          <div class="card-link card-city">
-            <%= link_to "Boat1", boat_path(boat) %>
-          </div>
-            <div class="card-description">Text</div>
-            <div>
-              <img src="images/anne.jpg" alt="Anne" class="img-circle avatar">
-            </div>
-          </div>
-        </div>
-
+      <% @boats.each do |boat| %>
+      <div class= "col-sm-4">
+        <%= render "boats/show_card", boat: boat %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
-</div>
 
-</div>
-@boat.where(category="canoe").first.photos.first
 
 <!-- Categories code -->
 
 
 <div class="category">
+  <div class="container">
+    <h3 class=text-center>Categories</h3>
+    <div class="row">
+      <div class='col-sm-8 col-sm-offset-2'>
+        <div class="row">
+          
+          <div class="col-md-2 col-sm-6">
+            <div>
+              <%= link_to image_tag('icon-catamaran.png'), boats_path(category: 'Catamaran') %>
+            </div>
+          </div>
 
-  <div class="row">
-    <div class="col-md-2 col-md-offset-1">
-      <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boat.where("category = 'Sailboat'").first.photos.first.path %>);">
-        <div class="card-link card-city">
-        <%= link_to "Sailboat", boat_path(boat) %>
-        </div>
-        <div>
-          <img src="images/anne.jpg" alt="Anne" class="img-circle avatar">
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boat.where("category = 'Canoe'").first.photos.first.path %>);">
-        <div class="card-link card-city">
-        <%= link_to "Canoe", boat_path(boat) %>
-        </div>
-        <div>
-          <img src="images/anne.jpg" alt="Anne" class="img-circle avatar">
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boat.where("category = 'Pirate Ship'").first.photos.first.path %>);">
-        <div class="card-link card-city">
-        <%= link_to "Pirate Ship", boat_path(boat) %>
-        </div>
-        <div>
-          <img src="images/anne.jpg" alt="Anne" class="img-circle avatar">
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boat.where("category = 'Aircraft Carrier'").first.photos.first.path %>);">
-        <div class="card-link card-city">
-        <%= link_to "Aircraft Carrier", boat_path(boat) %>
-        </div>
-        <div>
-          <img src="images/anne.jpg" alt="Anne" class="img-circle avatar">
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boat.where("category = 'Steamboat'").first.photos.first.path %>);">
-        <div class="card-link card-city">
-        <%= link_to "Steamboat", boat_path(boat) %>
-        </div>
-        <div>
-          <img src="images/anne.jpg" alt="Anne" class="img-circle avatar">
+          <div class="col-md-2 col-sm-6">
+            <div>
+              <%= link_to image_tag('icon-houseboat.png'), boats_path(category: 'Houseboat') %>
+            </div>
+          </div>
+
+
+          <div class="col-md-2 col-sm-6">
+            <div>
+              <%= link_to image_tag('icon-jet-ski.png'), boats_path(category: 'Jet ski') %>
+            </div>
+          </div>
+          
+          <div class="col-md-2 col-sm-6">
+            <div>
+              <%= link_to image_tag('icon-motorboat.png'), boats_path(category: 'Motorboat') %>
+            </div>
+          </div>
+          
+          <div class="col-md-2 col-sm-6">
+            <div>
+              <%= link_to image_tag('icon-rib.png'), boats_path(category: 'RIB') %>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-sm-6">
+            <div>
+              <%= link_to image_tag('icon-sailboat.png'), boats_path(category: 'Sailboat') %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
 <!-- Working_description -->
-
+<div class="wrapper">
 <div class="description">
-  <h3>We stand for simplicity</h3>
-  <div class="col-md-6">
-    <ul class="owner-renter">
-      <h4>Boat renter</h4>
-      <li>See all listings</li>
-      <li>Contact Boat owner</li>
-      <li>Book safley online</li>
-    </ul>
+  <div class="container">
+    <h3 class=text-center>We stand for simplicity</h3>
+    <div class="row">
+      <div class='col-sm-8 col-sm-offset-2'>
+      <div class="row">
+      <div class="col-md-6 col-sm-12">
+          <ul class="owner-renter text-center">
+            <h4>Boat renter</h4>
+            <li>See all listings</li>
+            <li>Contact Boat owner</li>
+            <li>Book safley online</li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <ul class="owner-renter text-center">
+            <h4>Boat owner</h4>
+            <li>Create a free advertisment</li>
+            <li>Moneize your boat</li>
+            <li>Optional insurance</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <ul class="owner-renter">
-      <h4>Boat owner</h4>
-      <li>Create a free advertisment</li>
-      <li>Moneize your boat</li>
-      <li>Optional insurance</li>
-    </ul>
-  </div>
+</div>
 </div>
 

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :reservations, only: [:new, :create]
     resources :reviews, only: [:new, :create]
   end
-
+  get "/search_boat/", to: "boats#search", as: "search_boat"
   resources :reservations, except: [:new, :create, :index]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

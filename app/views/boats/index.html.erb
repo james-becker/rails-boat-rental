@@ -12,7 +12,11 @@
         <% @boats.first(6).each do |boat| %>
           <%= render "show_card", boat: boat %>
         <% end %>
+
+        <%= render "show_card", boat: @boats.where('category = sailboat').first %>
+
       </div>
     </div>
   </container>
 </wrapper>
+
