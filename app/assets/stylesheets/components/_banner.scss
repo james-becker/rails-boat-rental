@@ -45,9 +45,9 @@
   height:40px;
   color: #b88525;
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  background: #fbfaf8;
+  background-color: #fbfaf8;
   -webkit-appearance: none;
-  border: none;
+  border: 1px solid #b88525;
 }
 
 // #booking {
@@ -66,7 +66,7 @@
   color: #b88525;
   font-weight: 300;
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  border: none;
+  border: 1px solid #b88525;
   font-size: 14px;
   height: 40px;
   cursor: pointer;
@@ -77,7 +77,7 @@
   }
 
 
-  .book-online:hover {
+.button-book-online:hover {
     background: #b88525;
     color: #fbfaf8;
   }
@@ -95,6 +95,36 @@
   position: relative;
 }
 
+.container h3 {
+  color: #b88525;
+  margin-bottom: 30px;
+}
+
+.button-book-boat {
+  background: #fbfaf8;
+  margin-top: 35px;
+  padding: 10px;
+  color: #b88525;
+  font-weight: 300;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  border: 1px solid #b88525;
+  font-size: 14px;
+  height: 40px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.button-book-boat:hover {
+    background: #b88525;
+    color: #fbfaf8;
+  }
+  .container-logo {
+    margin-top:20px;
+    margin-bottom:20px;
+  }
+
+
 .add-boat-banner {
   background-image: image-url('speed-boat.jpg');
 }
+
