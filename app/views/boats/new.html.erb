@@ -1,2 +1,15 @@
-<h1>Boats#new</h1>
-<p>Find me in app/views/boats/new.html.erb</p>
+<h1>Add Your Boat</h1>
+<p>Rent your boat to individuals or groups.</p>
+
+<%= simple_form_for :boat do |f| %>
+  <%= f.collection_select(:category, Boat::CATEGORIES, :id, :id) %>
+  <%= f.input :category, collection: Boat::CATEGORIES, label_method: :location_name, value_method: :id, label: "Category", include_blank: false %>
+  <%= f.input :name, hint: "The Black Pearl" %>
+  <%= f.collection_select(:capacity, Boat::CAPACITIES) %>
+  <%= f.input :description, hint: "The awerrrrr-somest ship in the seven seas! Parrot included!" %>
+  <%= f.input :price, hint: "70 doubloons" %>
+  <%= f.input :location, hint: "Blackbeard's Bluff" %>
+  <%= f.input :user_id, as: hidden, value: current_user.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.button :submit %>
+<% end %>

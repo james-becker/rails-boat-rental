@@ -5,8 +5,12 @@ require 'faker'
   user = User.new
   user.first_name = Faker::Name.first_name
   user.last_name = Faker::Name.last_name
+<<<<<<< HEAD
   user.address = Faker::Address.street_address
   user.dob = Faker::Number.number(2)
+=======
+  user.dob = "01/01/2000"
+>>>>>>> master
   user.password = "password"
   user.photo_url = "http://lorempixel.com/400/200/people/"
   user.email = Faker::Internet.email
@@ -22,9 +26,10 @@ require 'faker'
     boat.name = Faker::Name.first_name
     boat.user = user
     boat.photo_urls = [
-Faker::LoremPixel.image("300x500"),
-Faker::LoremPixel.image("300x500"),
-Faker::LoremPixel.image("300x500")]
+      Faker::LoremPixel.image("300x500"),
+      Faker::LoremPixel.image("300x500"),
+      Faker::LoremPixel.image("300x500")
+    ]
     boat.save!
   end
 

@@ -17,6 +17,8 @@ class BoatsController < ApplicationController
 
   def show
     #inspect a specific boat
+    @owner = User.find(@boat.user_id)
+    @owner_name = @owner.first_name + @owner.last_name
   end
 
   def new

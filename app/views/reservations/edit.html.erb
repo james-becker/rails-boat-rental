@@ -1,2 +1,7 @@
-<h1>Reservations#edit</h1>
-<p>Find me in app/views/reservations/edit.html.erb</p>
+<%= simple_form_for @reservation do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :notes %>
+  <%= f.input :count %>
+  <%= f.button :submit %>
+<% end %>
