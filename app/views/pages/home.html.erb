@@ -30,13 +30,6 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
 <!-- Our selection code -->
 
 
@@ -60,12 +53,12 @@
 
 
 <div class="category">
-  <div class="container">
+  <div class="container padded">
     <h3 class=text-center>Categories</h3>
     <div class="row">
       <div class='col-sm-8 col-sm-offset-2'>
         <div class="row">
-          
+
           <div class="col-md-2 col-sm-6">
             <div>
               <%= link_to image_tag('icon-catamaran.png'), boats_path(category: 'Catamaran') %>
@@ -81,16 +74,16 @@
 
           <div class="col-md-2 col-sm-6">
             <div>
-              <%= link_to image_tag('icon-jet-ski.png'), boats_path(category: 'Jet ski') %>
+              <%= link_to image_tag('icon-jet-ski.png'), boats_path(category: 'Jetski') %>
             </div>
           </div>
-          
+
           <div class="col-md-2 col-sm-6">
             <div>
               <%= link_to image_tag('icon-motorboat.png'), boats_path(category: 'Motorboat') %>
             </div>
           </div>
-          
+
           <div class="col-md-2 col-sm-6">
             <div>
               <%= link_to image_tag('icon-rib.png'), boats_path(category: 'RIB') %>
@@ -109,7 +102,7 @@
 </div>
 
 <!-- Working_description -->
-<div class="wrapper">
+<div class="wrapper padded">
 <div class="description">
   <div class="container">
     <h3 class=text-center>We stand for simplicity</h3>
@@ -122,7 +115,9 @@
             <li>See all listings</li>
             <li>Contact Boat owner</li>
             <li>Book safley online</li>
+            <%= button_to "Find a boat", boats_path, :class => "btn btn-default button-book-boat", :method => :get %>
           </ul>
+
         </div>
         <div class="col-md-6 col-sm-12">
           <ul class="owner-renter text-center">
@@ -130,6 +125,7 @@
             <li>Create a free advertisment</li>
             <li>Moneize your boat</li>
             <li>Optional insurance</li>
+            <%= button_to "Estimate my earnings", new_boat_path, :class => "btn btn-default button-book-boat", :method => :get %>
           </ul>
         </div>
       </div>
@@ -137,5 +133,11 @@
     </div>
   </div>
 </div>
+</div>
+
+<div class="container-logo">
+<div class=text-center>
+  <%= link_to image_tag('logo.jpg', :size => "60x70"), boats_path %>
+  </div>
 </div>
 
