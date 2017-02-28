@@ -10,12 +10,3 @@ class PagesController < ApplicationController
 
   end
 end
-
-
-# /boats?location=france&category=yacht
-# params[:location]
-
-
-
-
-# form_for boats_path(location: "", category)
