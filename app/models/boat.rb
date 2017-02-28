@@ -4,6 +4,7 @@ class Boat < ApplicationRecord
 
   belongs_to :user
   has_many :reviews
+  has_many :reservations
   has_attachments :photos, maximum: 10
 
   validates :description, presence: true

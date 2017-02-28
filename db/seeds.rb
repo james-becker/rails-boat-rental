@@ -1,16 +1,5 @@
 require 'faker'
 
-User.create({
-  first_name: "James",
-  last_name: "Becker",
-  dob: "01/01/2000",
-  password: "123456",
-  photo_url: "http://lorempixel.com/400/200/people/",
-  email: "john@lennon.com"
-});
-
-
-
 10.times do |i|
 
   user = User.new
