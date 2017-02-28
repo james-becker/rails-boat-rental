@@ -54,7 +54,7 @@
         <div class= "col-sm-4">
           <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boats.first.photos.first.path %>);">
           <div class="card-link card-city">
-            <%= link_to "Boat1", boat_path(boat) %>
+            <%= link_to "Boat1" %>
           </div>
             <div class="card-description">Text</div>
             <div>
@@ -64,9 +64,9 @@
         </div>
 
         <div class= "col-sm-4">
-          <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boats[2].first.photos.first.path %>);">
+          <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boats[1].photos.first.path %>);">
           <div class="card-link card-city">
-            <%= link_to "Boat1", boat_path(boat) %>
+            <%= link_to "Boat1" %>
           </div>
             <div class="card-description">Text</div>
             <div>
@@ -78,7 +78,7 @@
         <div class= "col-sm-4">
           <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boats.last.photos.first.path %>);">
           <div class="card-link card-city">
-            <%= link_to "Boat1", boat_path(boat) %>
+            <%= link_to "Boat1" %>
           </div>
             <div class="card-description">Text</div>
             <div>
@@ -93,9 +93,9 @@
 </div>
 </div>
 
+<div>
+  <%= @boat.where(category="canoe").first.photos.first %>
 </div>
-@boat.where(category="canoe").first.photos.first
-
 <!-- Categories code -->
 
 
