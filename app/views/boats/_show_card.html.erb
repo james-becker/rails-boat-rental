@@ -1,6 +1,7 @@
-<div class='boat_card' style="background-image: url('<%= boat.photo %>');background-size:cover">
+<div class='card' style="background-image: url('<%= cl_image_path boat.photos.first.path %>');background-size:cover">
   <%= link_to boat.name, boat_path(boat), { class: 'btn' } %>
   <p class='card-description'>
-    <%= boat.description %>
+    <p class='card-boat-name'><%= boat.name %>
+    <p><%= boat.description %></p>
   </p>
 </div>

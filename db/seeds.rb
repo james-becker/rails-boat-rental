@@ -3,7 +3,6 @@ require 'faker'
 User.create({
   first_name: "James",
   last_name: "Becker",
-  address: "1234",
   dob: "01/01/2000",
   password: "123456",
   photo_url: "http://lorempixel.com/400/200/people/",
@@ -17,7 +16,6 @@ User.create({
   user = User.new
   user.first_name = Faker::Name.first_name
   user.last_name = Faker::Name.last_name
-  user.address = Faker::Address.street_address
   user.dob = "01/01/2000"
   user.password = "password"
   user.photo_url = "http://lorempixel.com/400/200/people/"
