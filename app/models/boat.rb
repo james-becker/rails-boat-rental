@@ -1,7 +1,7 @@
 class Boat < ApplicationRecord
 
   CATEGORIES = ["Motorboat", "Sailboat", "Rib", "Catamaran", "Houseboat", "Jetski"]
-  CAPACITIES = [1, 2, 3, 4, 5, 6, 7, 8, 9, "10 or more"]
+  CAPACITIES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
   belongs_to :user
@@ -11,7 +11,7 @@ class Boat < ApplicationRecord
 
   validates :description, presence: true
   validates :category, presence: true, inclusion: {in: CATEGORIES}
-  validates :capacity, numericality: true, presence: true, inclusion: {in: CATEGORIES}
+  validates :capacity, numericality: true, presence: true, inclusion: {in: CAPACITIES}
   validates :price, numericality: true, presence: true
   validates :location, presence: true
   validates :name, presence: true
