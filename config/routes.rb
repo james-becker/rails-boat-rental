@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, path_prefix: 'd'
 
   namespace :users do
-      get '/:id/reservations', action: 'view_profile', as: "show_profile"
+      get '/:id/profile', action: 'view_profile', as: "show_profile"
   end
 
   resources :boats do

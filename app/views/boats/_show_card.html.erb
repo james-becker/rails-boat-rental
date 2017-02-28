@@ -1,7 +1,11 @@
-<div class='card' style="background-image: url('<%= cl_image_path boat.photos.first.path %>');background-size:cover">
-  <%= link_to boat.name, boat_path(boat), { class: 'btn' } %>
-  <p class='card-description'>
-    <p class='card-boat-name'><%= boat.name %>
-    <p><%= boat.description %></p>
-  </p>
-</div>
+<%= link_to boat_path(boat) do %>
+  <div class='card' style="background-image: url('<%= cl_image_path boat.photos.first.path %>');background-size:cover;">
+      <p class="card-boat-name"> <%= boat.name %> </p>
+      <p class="card-description"> <%= boat.description %> </p>
+      <% if boat.reviews.average(:stars) %>
+      <p class="card-stars"> <%= boat.reviews.average(:stars).round(2) %> * </p>
+      <% else %>
+      <p class="card-stars"> n/a * </p>
+      <% end %>
+  </div>
+<% end %>
