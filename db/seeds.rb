@@ -14,8 +14,8 @@ require 'faker'
   3.times do |i|
     boat = Boat.new
     boat.description = Faker::Lorem.paragraph
-    boat.category = ["Sailboat", "Canoe", "Pirate Ship", "Aircraft Carrier", "Steamboat"].sample
-    boat.capacity = Faker::Number.number(2)
+    boat.category = Boat::CATEGORIES.sample
+    boat.capacity = Boat::CAPACITIES.sample
     boat.price = Faker::Number.decimal(2)
     boat.location = Faker::Address.city
     boat.name = Faker::Name.first_name
