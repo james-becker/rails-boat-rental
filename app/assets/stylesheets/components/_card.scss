@@ -27,7 +27,15 @@
   font-weight: bold;
   font-size: 40px;
   left: 20px;
-  bottom: 20px;
+  top: 20px;
+}
+
+.card-stars {
+  position:absolute;
+  font-weight: bold;
+  font-size: 20px;
+  top: 30px;
+  right: 20px;
 }
 
 .card-description {
