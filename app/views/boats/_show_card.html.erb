@@ -2,10 +2,14 @@
   <div class='card' style="background-image: url('<%= cl_image_path boat.photos.first.path %>');background-size:cover;">
       <p class="card-boat-name"> <%= boat.name %> </p>
       <p class="card-description"> <%= boat.description %> </p>
-      <% if boat.reviews.average(:stars) %>
-      <p class="card-stars"> <%= boat.reviews.average(:stars).round(2) %> * </p>
-      <% else %>
-      <p class="card-stars"> n/a * </p>
-      <% end %>
+
+      <div class="card-stars">
+        <% 5.times do %>
+          <%= image_tag("star", size: "16x16") %>
+        <% end %><br><br>
+        <% if boat.reviews.average(:stars) %>
+          <%= boat.reviews.average(:stars).round(2) %></p>
+        <% end %>
+      </div>
   </div>
 <% end %>
