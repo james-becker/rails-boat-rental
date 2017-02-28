@@ -1,7 +1,6 @@
 class Boat < ApplicationRecord
 
   CATEGORIES = ["Sailboat", "Canoe", "Pirate Ship", "Aircraft Carrier", "Steamboat"]
-
   belongs_to :user
   has_many :reviews
   has_many :reservations
@@ -14,4 +13,14 @@ class Boat < ApplicationRecord
   validates :location, presence: true
   validates :name, presence: true
   validates :photos, presence: true
-end
+
+  def self.most_booked(n)
+
+    # compter resa, tri, return les n premierd
+    # end
+    @boats = Boat.all.sort { |x,y| y.reservations.count <=> x.reservations.count }
+    @boats.last(n)
+  end
+
+  end
+

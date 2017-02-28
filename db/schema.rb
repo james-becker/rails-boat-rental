@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20170228111728) do
+=======
 ActiveRecord::Schema.define(version: 20170228092551) do
+>>>>>>> 6fb2ba2c2d67b2ebd8611c3a5bb0be52afae19e9
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,9 +41,10 @@ ActiveRecord::Schema.define(version: 20170228092551) do
     t.float    "price"
     t.string   "location"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "name"
+    t.integer  "reservations_count"
     t.index ["user_id"], name: "index_boats_on_user_id", using: :btree
   end
 
