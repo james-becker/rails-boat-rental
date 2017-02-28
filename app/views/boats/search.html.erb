@@ -1,7 +1,6 @@
- <h1>Boats#index</h1>
 
 <div class="col-sm-6 col-sm-offset-3">
-<%= simple_form_for @boat, :url => boats_path, :method => :get  do |f| %>
+<%= simple_form_for @boat, :url => search_boat_path, :method => :get  do |f| %>
 
   <div class="form-inputs">
     <%= f.input :location %>
@@ -11,16 +10,15 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Search!" %>
   </div>
 <% end %>
 </div>
 
 
-
 <% @boats.each do |boat| %>
   <tr>
-    # <td><%= boat.location %></td>
+    # <td><%= boat.name %></td>
   </tr>
   <% end  %>
 

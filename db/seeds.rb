@@ -6,7 +6,7 @@ require 'faker'
   user.first_name = Faker::Name.first_name
   user.last_name = Faker::Name.last_name
   user.address = Faker::Address.street_address
-  user.age = Faker::Number.number(2)
+  user.dob = Faker::Number.number(2)
   user.password = "password"
   user.photo_url = "http://lorempixel.com/400/200/people/"
   user.email = Faker::Internet.email

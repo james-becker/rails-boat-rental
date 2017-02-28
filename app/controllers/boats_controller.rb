@@ -1,8 +1,17 @@
 class BoatsController < ApplicationController
-  before_action :set_boat, except: [:index, :new, :create]
+  skip_before_action :authenticate_user!, only: [:index,:search]
+  before_action :set_boat, except: [:index, :new, :create, :search]
 
   def index
     #show all boats in the db
+    # @boats = Boat.all
+    @boat = Boat.new
+    # # if params[:boat] && params[:boat][:capacity]
+    # #   @boats = @boats.where(capacity: params[:boat][:capacity])
+    # # end
+    # if params[:boat] && params[:boat][:category]
+    #   @boats = @boats.where(category: params[:boat][:category])
+    # end
     @boats = Boat.all
   end
 
@@ -36,7 +45,10 @@ class BoatsController < ApplicationController
   def update
     #update a specific boat details, if you are the owner
   end
-
+  def search
+    @boat = params[:boat] ? Boat.new(search_boats_query(params[:boat])) : Boat.new
+    @boats = params[:boat] ? Boat.where(search_boats_query(params[:boat])) : Boat.all
+  end
   private
 
   def set_boat
@@ -46,5 +58,11 @@ class BoatsController < ApplicationController
   def boat_params
     params.require(:boat).permit(:description, :category, :capacity, :price, :location, :user_id, :name)
   end
+  def search_boats_query(params)
+    query = {}
+    query[:category] = params[:category] unless params[:category].empty?
+    query[:capacity] = params[:capacity] unless params[:capacity].empty?
 
+    query
+  end
 end
