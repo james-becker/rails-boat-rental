@@ -60,7 +60,7 @@
   // background: rgba(247,247,244,0.8);
 // }
 
-.book-online {
+.button-book-online {
   background: #fbfaf8;
   margin-left: 40px;
   color: #b88525;
@@ -93,4 +93,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.add-boat-banner {
+  background-image: image-url('speed-boat.jpg');
 }
