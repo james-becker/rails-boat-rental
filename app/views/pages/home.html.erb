@@ -71,6 +71,13 @@
             </div>
 
 
+<<<<<<< HEAD
+=======
+        <div class= "col-sm-4">
+          <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boats.first.photos.first.path %>);">
+          <div class="card-link card-city">
+            <%= link_to "Boat1" %>
+>>>>>>> 9f9f336247465dc2efe86897da8b293494aa6f6d
           </div>
 
           <div class="col-md-2 col-sm-6">
@@ -81,12 +88,19 @@
 
           </div>
 
+<<<<<<< HEAD
           <div class="col-md-2 col-sm-6">
             <div>
               <%= link_to image_tag('icon-jet-ski.png'), boats_path(category: 'Jet ski') %>
             </div>
 
 
+=======
+        <div class= "col-sm-4">
+          <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boats[1].photos.first.path %>);">
+          <div class="card-link card-city">
+            <%= link_to "Boat1" %>
+>>>>>>> 9f9f336247465dc2efe86897da8b293494aa6f6d
           </div>
           <div class="col-md-2 col-sm-6">
             <div>
@@ -100,6 +114,13 @@
             </div>
 
 
+<<<<<<< HEAD
+=======
+        <div class= "col-sm-4">
+          <div class= "card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cl_image_path @boats.last.photos.first.path %>);">
+          <div class="card-link card-city">
+            <%= link_to "Boat1" %>
+>>>>>>> 9f9f336247465dc2efe86897da8b293494aa6f6d
           </div>
 
           <div class="col-md-2 col-sm-6">
@@ -113,7 +134,14 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 
+=======
+<div>
+  <%= @boat.where(category="canoe").first.photos.first %>
+</div>
+<!-- Categories code -->
+>>>>>>> 9f9f336247465dc2efe86897da8b293494aa6f6d
 
 <!-- Working_description -->
 <div class="wrapper">
