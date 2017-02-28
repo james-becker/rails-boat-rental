@@ -31,24 +31,38 @@
 // .form-group {
 //   margin-bottom: 15px;
 // }
+.search-form {
+  background-color: rgba(247,247,244,0.5);
+  padding: 35px;
+  color: #b88525;
+  margin-top: 100px;
+  width: 500px;
+  margin: 0 auto;
+}
 
 .location {
   font-weight: 300;
+  height:40px;
+  color: #b88525;
   font-family: Roboto, Helvetica, Arial, sans-serif;
+  background: #fbfaf8;
+  -webkit-appearance: none;
+  border: none;
 }
 
-#booking {
-  position: absolute;
-  color: #b88525;
-  bottom: 40px;
-  width: 1060px;
-  height: 102px;
-  z-index: 10;
-  background: rgba(247,247,244,0.8);
-}
+// #booking {
+//   position: absolute;
+//   color: #b88525;
+//   bottom: 40px;
+//   width: 1000px;
+//   height: 102px;
+//   z-index: 10;
+  // background: rgba(247,247,244,0.8);
+// }
 
 .book-online {
   background: #fbfaf8;
+  margin-left: 40px;
   color: #b88525;
   font-weight: 300;
   font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -56,7 +70,17 @@
   font-size: 14px;
   height: 40px;
   cursor: pointer;
+  padding: 10px;
     // display: block;
     -webkit-appearance: none;
 
   }
+
+
+  .book-online:hover {
+    background: #b88525;
+    color: #fbfaf8;
+  }
+
+
+
