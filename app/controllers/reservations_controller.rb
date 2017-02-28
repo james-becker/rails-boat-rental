@@ -1,11 +1,15 @@
 class ReservationsController < ApplicationController
+  before_action :set_reservation, only: [:edit, :update, :destroy, :show]
+  before_action :set_boat, only: [:create, :new]
+
   def index
-    #show all reservations for that user
-    @reservations = Reservation.all
+    #functionality to show all reservations for that user
+    #implemented in the users controller, view_profile method
   end
 
   def show
     #show a specific reservation details
+
   end
 
   def edit
@@ -39,6 +43,10 @@ class ReservationsController < ApplicationController
 
   def set_reservation
     @reservation = Reservation.find(params[:id])
+  end
+
+  def set_boat
+    @boat = Boat.find(params[:boat_id])
   end
 
   def reservation_params
