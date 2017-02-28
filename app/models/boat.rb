@@ -3,6 +3,7 @@ class Boat < ApplicationRecord
   CATEGORIES = ["Sailboat", "Canoe", "Pirate Ship", "Aircraft Carrier", "Steamboat"]
   belongs_to :user
   has_many :reviews
+  has_many :reservations
   has_attachments :photos, maximum: 10
 
   validates :description, presence: true
