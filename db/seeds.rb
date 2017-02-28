@@ -5,12 +5,7 @@ require 'faker'
   user = User.new
   user.first_name = Faker::Name.first_name
   user.last_name = Faker::Name.last_name
-<<<<<<< HEAD
-  user.address = Faker::Address.street_address
-  user.dob = Faker::Number.number(2)
-=======
   user.dob = "01/01/2000"
->>>>>>> master
   user.password = "password"
   user.photo_url = "http://lorempixel.com/400/200/people/"
   user.email = Faker::Internet.email
@@ -19,8 +14,8 @@ require 'faker'
   3.times do |i|
     boat = Boat.new
     boat.description = Faker::Lorem.paragraph
-    boat.category = ["Sailboat", "Canoe", "Pirate Ship", "Aircraft Carrier", "Steamboat"].sample
-    boat.capacity = Faker::Number.number(2)
+    boat.category = Boat::CATEGORIES.sample
+    boat.capacity = Boat::CAPACITIES.sample
     boat.price = Faker::Number.decimal(2)
     boat.location = Faker::Address.city
     boat.name = Faker::Name.first_name
