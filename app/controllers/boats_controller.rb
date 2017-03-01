@@ -43,10 +43,13 @@ class BoatsController < ApplicationController
 
   def destroy
     #destroy a specific boat, if you are the owner
+    @boat.destroy
+    redirect_to @boats
   end
 
   def update
     #update a specific boat details, if you are the owner
+    @boat.update[boat_params]
   end
   def search
     @boat = params[:boat] ? Boat.new(search_boats_query(params[:boat])) : Boat.new
