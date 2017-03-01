@@ -1,2 +1,8 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+You are making a review for <%= @boat.name %>, the <%= @boat.category %>.
+<br>
+<br>
+<%= simple_form_for :review, url: boat_reviews_path(@boat) do |f| %>
+  <%= f.input :content, required: true %>
+  <%= f.input :stars, required: true, integer: true, hint: "From 0 to 5", collection: [0,1,2,3,4,5]  %>
+  <%= f.button :submit %>
+<% end %>

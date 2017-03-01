@@ -27,7 +27,16 @@
   font-weight: bold;
   font-size: 40px;
   left: 20px;
-  bottom: 20px;
+  top: 20px;
+}
+
+.card-stars {
+  position:absolute;
+  font-weight: bold;
+  font-size: 20px;
+  top: 30px;
+  right: 20px;
+  text-align: right;
 }
 
 .card-description {
@@ -54,4 +63,9 @@
 
 .owner-renter {
   list-style-type: none;
+  text-align:center;
+}
+
+.description {
+  color: #A7A398;
 }
