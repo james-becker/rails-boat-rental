@@ -5,8 +5,8 @@
   <div class="form-inputs">
     <%= f.input :location %>
     <%= f.input :category, collection: Boat::CATEGORIES %>
-    <%= f.input :capacity, collection: Boat::CAPACITIES %>
-    <%= f.input :price  %>
+    <%= f.input :capacity %>
+    <%= f.input :price %>
   </div>
 
   <div class="form-actions">
@@ -18,7 +18,7 @@
 
 <% @boats.each do |boat| %>
   <tr>
-    # <td><%= boat.name %>, <%= boat.price %> €, <%= boat.capacity %> pax, <%= boat.location %></td>
+    # <td><%= boat.name %></td>
   </tr>
   <% end  %>
 
