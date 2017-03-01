@@ -43,8 +43,10 @@ class BoatsController < ApplicationController
 
   def destroy
     #destroy a specific boat, if you are the owner
-    @boat.destroy
-    redirect_to @boats
+      @boat.destroy
+      redirect_to @boats
+    else
+
   end
 
   def update
