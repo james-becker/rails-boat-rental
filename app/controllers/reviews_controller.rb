@@ -1,20 +1,19 @@
 class ReviewsController < ApplicationController
 
-  def index
-    #show all reviews of the user when he clicks a button on his home page
-    @reviews = Review.all
-  end
+  before_action :set_boat, only: [:create, :new]
 
   def new
     #make a review
-    @review = Review.new()
+    @review = Review.new
   end
 
   def create
     #make a review
     @review = Review.new(review_params)
+    @review.user = current_user || User.find(1) # this is only to simulate user, remove || 1 later
+    @review.boat = @boat
     if @review.save
-      redirect_to @review
+      redirect_to @boat
     else
       render :new
     end
@@ -23,8 +22,11 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content, :stars, :user_id, :boat_id)
+    params.require(:review).permit(:content, :stars)
   end
 
+  def set_boat
+    @boat = Boat.find(params[:boat_id])
+  end
 
 end

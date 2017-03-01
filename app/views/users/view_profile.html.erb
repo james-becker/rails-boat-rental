@@ -1,2 +1,72 @@
-<h1>Users#view_profile</h1>
-<p>Find me in app/views/users/view_profile.html.erb</p>
+<%= cl_image_tag @user.photo.path, width: 300, height: 200, crop: :fill %>
+<p> <%= @user.first_name %> <%= @user.last_name %></p>
+<p> <%= @user.email %> </p>
+<% if @user.dob %>
+<p> Born: <%= @user.dob %> </p>
+<% end %>
+
+<%= link_to "edit profile", edit_user_registration_path  %>
+
+<div class="row">
+  <h1 class="text-center"> Your Reservations </h1>
+  <div class="col-md-4">
+    <h2 class="text-center"> Upcoming </h2>
+    <% @upcoming_reservations.each do |res| %>
+      <p> Starting: <%= res.start_time %> </p>
+      <p> Ending: <%= res.end_time %> </p>
+      <p> You and <%= res.count - 1 %> others </p>
+      <p> Travelling on the <%= link_to res.boat.name, boat_path(res.boat) %></p>
+      <div class="row">
+        <% res.boat.photos.first(3).each do |photo| %>
+        <div class="col-md-4">
+          <%= cl_image_tag photo.path, responsive_width: true, height: 100, crop: :scale %>
+        </div>
+        <% end %>
+      </div>
+      <br>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h2 class="text-center"> Pending </h2>
+    <% @pending_reservations.each do |res| %>
+      <p> Starting: <%= res.start_time %> </p>
+      <p> Ending: <%= res.end_time %> </p>
+      <p> You and <%= res.count - 1 %> others </p>
+      <p> Travelling on the <%= link_to res.boat.name, boat_path(res.boat) %></p>
+      <div class="row">
+        <% res.boat.photos.first(3).each do |photo| %>
+        <div class="col-md-4">
+          <%= cl_image_tag photo.path, responsive_width: true, height: 100, crop: :scale %>
+        </div>
+        <% end %>
+      </div>
+      <br>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h2 class="text-center"> Past </h2>
+    <% @finished_reservations.each do |res| %>
+      <p> Started: <%= res.start_time %> </p>
+      <p> Ended: <%= res.end_time %> </p>
+      <p> You and <%= res.count - 1 %> others </p>
+      <p> Traveled on the <%= link_to res.boat.name, boat_path(res.boat) %></p>
+      <div class="row">
+        <% res.boat.photos.first(3).each do |photo| %>
+        <div class="col-md-4">
+          <%= cl_image_tag photo.path, responsive_width: true, height: 100, crop: :scale %>
+        </div>
+        <% end %>
+      </div>
+      <br>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <h1 class="text-center"> Your Boats </h1>
+  <% @user_boats.each do |boat| %>
+      <div class="col-md-4">
+        <%= render "boats/show_card", boat: boat %>
+      </div>
+  <% end %>
+</div>
