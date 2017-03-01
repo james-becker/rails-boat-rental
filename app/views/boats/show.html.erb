@@ -1,14 +1,20 @@
 <div class="boat-banner" style="background-image: url('<%= cl_image_path @boat.photos.first.path %>');background-size:contain">
-
-
   <h1 class="boat-caption"><%= @boat.name %> | <%= @boat.location %></h1>
 </div>
 
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+        <div class="basic-gold-box">
+          <h2><%= @boat.category %></h2>
+          <h3>Capacity: <%= @boat.capacity %>
+          <p><%= @boat.description %></p>
+          <p><%= @boat.price %> per day</p>
 
-<h2><%= @boat.category %></h2>
-<h3>Capacity: <%= @boat.capacity %>
-<p><%= @boat.description %></p>
-<p><%= @boat.price %> per day</p>
-
-Contact <%= link_to @owner_name %>
-
+          <p>Contact <%= link_to @owner_name %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
