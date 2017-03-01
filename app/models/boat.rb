@@ -3,6 +3,8 @@ class Boat < ApplicationRecord
   CATEGORIES = ["Motorboat", "Sailboat", "Rib", "Catamaran", "Houseboat", "Jetski"]
   CAPACITIES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
 
   belongs_to :user
   has_many :reviews
