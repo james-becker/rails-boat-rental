@@ -13,7 +13,11 @@
           <h1>Add Your Boat</h1>
           <p>Rent your boat to individuals or groups.</p>
 
-          <%= render 'form_add_edit' %>
+          <%= simple_form_for :boat, url: boats_path, method: :post do |f| %>
+
+          <%= render 'form_add_edit', f: f, button_text: "Add a boat" %>
+
+          <% end %>
 
         </div>
       </div>
