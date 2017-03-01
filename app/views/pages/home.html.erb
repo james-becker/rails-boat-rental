@@ -19,7 +19,7 @@
           <%= f.input :location, placeholder:"Location...",label: false, input_html: {location: 'location', class: 'location'} %>
 
 
-          <%= f.button :submit, value: "Book now", class: 'button-book-online'%>
+          <%= f.button :submit, value: "Book now", new_boat_path, class: 'button-book-online'%>
 
           <% end %>
         </div>
