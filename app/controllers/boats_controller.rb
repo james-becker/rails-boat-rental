@@ -39,6 +39,7 @@ class BoatsController < ApplicationController
   def create
     #add a new boat, and become its owner
     @boat = Boat.new(boat_params)
+    @boat.user = current_user || User.find(1)
     if @boat.save
       redirect_to @boat
     else
@@ -98,7 +99,7 @@ class BoatsController < ApplicationController
   end
 
   def boat_params
-    params.require(:boat).permit(:description, :category, :capacity, :price, :location, :user_id, :name)
+    params.require(:boat).permit(:description, :category, :capacity, :price, :location, :user_id, :name, photos: [])
   end
   def search_boats_query(params)
     query = {}

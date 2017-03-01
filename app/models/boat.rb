@@ -11,13 +11,13 @@ class Boat < ApplicationRecord
   has_many :reservations
   has_attachments :photos, maximum: 10
 
-  # validates :description, presence: true
-  # validates :category, presence: true, inclusion: {in: CATEGORIES}
-  # validates :capacity, numericality: true, presence: true, inclusion: {in: CAPACITIES}
-  # validates :price, numericality: true, presence: true
-  # validates :location, presence: true
-  # validates :name, presence: true
-  # validates :photos, presence: true
+  validates :description, presence: true
+  validates :category, presence: true, inclusion: {in: CATEGORIES}
+  validates :capacity, numericality: true, presence: true, inclusion: {in: CAPACITIES}
+  validates :price, numericality: true, presence: true
+  validates :location, presence: true
+  validates :name, presence: true
+  validates :photos, presence: true
 
   def self.most_booked(n)
 
