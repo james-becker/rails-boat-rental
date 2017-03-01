@@ -20,6 +20,14 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'faker', '~> 1.4', '>= 1.4.3'
+gem "geocoder"
+
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 gem 'devise'
 gem 'bootstrap-datepicker-rails'

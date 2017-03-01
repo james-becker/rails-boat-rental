@@ -3,6 +3,8 @@ class Boat < ApplicationRecord
   CATEGORIES = ["Motorboat", "Sailboat", "Rib", "Catamaran", "Houseboat", "Jetski"]
   CAPACITIES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
 
   belongs_to :user
   has_many :reviews
@@ -15,7 +17,7 @@ class Boat < ApplicationRecord
   validates :price, numericality: true, presence: true
   validates :location, presence: true
   validates :name, presence: true
-  # validates :photos, presence: true
+  validates :photos, presence: true
 
   def self.most_booked(n)
 

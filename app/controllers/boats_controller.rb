@@ -14,6 +14,15 @@ class BoatsController < ApplicationController
     #   @boats = @boats.where(category: params[:boat][:category])
     # end
     @boats = Boat.all
+
+    @boats_on_map = Boat.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@boats_on_map) do |boat, marker|
+      marker.lat boat.latitude
+      marker.lng boat.longitude
+      # marker.infowindow render_to_string(partial: "/boats/map_box", locals: { boat: boat })
+    end
+
   end
 
   def show
@@ -30,6 +39,7 @@ class BoatsController < ApplicationController
   def create
     #add a new boat, and become its owner
     @boat = Boat.new(boat_params)
+    @boat.user = current_user || User.find(1)
     if @boat.save
       redirect_to @boat
     else
@@ -89,7 +99,7 @@ class BoatsController < ApplicationController
   end
 
   def boat_params
-    params.require(:boat).permit(:description, :category, :capacity, :price, :location, :user_id, :name)
+    params.require(:boat).permit(:description, :category, :capacity, :price, :location, :user_id, :name, photos: [])
   end
   def search_boats_query(params)
     query = {}
