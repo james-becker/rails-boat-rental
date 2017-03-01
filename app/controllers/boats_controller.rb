@@ -1,6 +1,8 @@
 class BoatsController < ApplicationController
 
-  # skip_before_action :authenticate_user!, only: [:index,:search]
+
+  skip_before_action :authenticate_user!, only: [:index,:search]
+
   before_action :set_boat, except: [:index, :new, :create, :search]
 
   def index
@@ -14,6 +16,15 @@ class BoatsController < ApplicationController
     #   @boats = @boats.where(category: params[:boat][:category])
     # end
     @boats = Boat.all
+
+    @boats_on_map = Boat.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@boats_on_map) do |boat, marker|
+      marker.lat boat.latitude
+      marker.lng boat.longitude
+      # marker.infowindow render_to_string(partial: "/boats/map_box", locals: { boat: boat })
+    end
+
   end
 
   def show
