@@ -1,4 +1,4 @@
-<%= simple_form_for :boat do |f| %>
+
           <%= f.input :category, class: 'golden-input', collection: Boat::CATEGORIES, label: "Category", include_blank: false %>
           <%= f.input :name, placeholder: "The Black Pearl" %>
           <%= f.input :capacity, collection: Boat::CAPACITIES, label: "Capacity", include_blank: false %>
@@ -7,8 +7,8 @@
           <%= f.input :location, placeholder: "Blackbeard's Bluff" %>
           <%= f.input :user_id, as: 'hidden', value: current_user %>
           <%= f.hidden_field :user_id, value: current_user %>
-            <%= f.button :submit, class: 'button-book-boat center-block' %>
+          <%= f.button :submit, value: button_text, class: 'button-book-boat center-block'  %>
 
 
 
-<% end %>
+

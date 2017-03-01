@@ -12,10 +12,16 @@
 
           <h1>Edit your boat</h1>
 
-          <%= render 'form_add_edit' %>
+          <%= simple_form_for @boat, method: :patch do |f| %>
+
+          <%= render 'form_add_edit', f: f, button_text: "Edit boat" %>
+
+          <% end %>
 
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- :boat, url: boats_path(@boat) -->
