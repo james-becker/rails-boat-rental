@@ -1,0 +1,20 @@
+<div class="col-xs-12 padded-little">
+  <div class="reservation_card">
+    <div class="reservation-image">
+    <%= cl_image_tag @res.boat.photos.first.path, responsive_width: true, height: 250, crop: :fill %>
+    </div>
+  <div class="reservation-content">
+
+    <p> From <strong><%= @res.start_time %> </strong> to <strong> <%= @res.end_time %> </strong> </p>
+    <br>
+    <p> You and <%= @res.count - 1 %> others are travelling on the <%= link_to @res.boat.name, boat_path(@res.boat) %> </p>
+    <br>
+    <p> <%= @res.notes %> </p>
+    <br>
+    <%= link_to "edit reservation", edit_reservation_path(@res), class: "edit_reservation" %>
+  </div>
+  <div class="reservation-status">
+    <p> <strong> <%= @res.status %> </strong> </p>
+  </div>
+  </div>
+</div>
