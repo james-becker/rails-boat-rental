@@ -1,9 +1,11 @@
-<h1>All Boats</h1>
-<h2>Find the perfect boat for your adventure<h2>
+<div class="jumbotron">
+  <h1>All Boats</h1>
+  <h2>Find the perfect boat for your adventure<h2>
+</div>
 
 <!-- BOAT MAP implementation  -->
 
-<div id="map" style="width: 100%; height: 600px;"></div>
+<div id="map" style="width: 100%; height: 350px;"></div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -26,32 +28,7 @@
 <!-- END BOAT MAP implementation -->
 
 
-
-<div class="jumbotron">
-
-</div>
-<div class="col-sm-6 col-sm-offset-3">
-<%= simple_form_for @boat, :url => search_boat_path, :method => :get  do |f| %>
-
-  <div class="form-inputs">
-    <%= f.input :location %>
-    <%= f.input :category, collection: Boat::CATEGORIES %>
-    <%= f.input :capacity %>
-    <%= f.input :price %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Search!" %>
-  </div>
-<% end %>
-</div>
-
-
-<% @boats.each do |boat| %>
-  <tr>
-    # <td><%= boat.name %></td>
-  </tr>
-<% end %>
+<%= render 'search_bar' %>
 
 <wrapper>
   <container>
