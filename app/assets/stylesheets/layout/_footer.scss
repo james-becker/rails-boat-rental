@@ -1,17 +1,17 @@
 .follow-us {
   text-align:center;
+  margin-top: 20px;
 }
 
 .footer {
   background-color: #fbfaf8;
-  height:100px;
+  height:160px;
   color: #A7A398;
   justify-content: space-between;
   border-top: 1px solid rgba(184,133,37,0.3);
   width:100vw;
       padding-left: 40px;
-    padding-top: 30px;
-
+    padding-top: 20px;
 }
 
 .footer ul {
@@ -52,10 +52,10 @@
 }
 
 
-.title:after {
+.footer-title:after {
     content: "";
     display: block;
     height: 1px;
-    width: 30%;
+    width: 50%;
     background: #857f70;
 }
