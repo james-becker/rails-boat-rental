@@ -5,5 +5,7 @@
 //= require attachinary
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 
