@@ -23,17 +23,17 @@
     </form> -->
 
     <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">LogIn</a>
+    <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">SignIn</a>
+    <%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Notification link-->
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">About</a>
+    <%= link_to "About", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Button (call-to-action) -->
-    <a href="" class="navbar-wagon-item navbar-wagon-button btn ">Register your boat</a>
+    <%= link_to "Register Your Boat", new_boat_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown appearing on mobile only -->
