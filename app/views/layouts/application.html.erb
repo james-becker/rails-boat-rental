@@ -25,7 +25,12 @@
   <% if alert %>
   <p class="alert"><%= alert %></p>
   <% end %>
-  <%= yield %>
+
+  <div class="navbar-spacer">
+
+    <%= yield %>
+
+  </div>
 
   <%= render 'shared/footer' %>
 
