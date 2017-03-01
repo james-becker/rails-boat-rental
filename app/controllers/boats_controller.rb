@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index,:search]
+  #skip_before_action :authenticate_user!, only: [:index,:search]
   before_action :set_boat, except: [:index, :new, :create, :search]
 
   def index
@@ -47,10 +47,34 @@ class BoatsController < ApplicationController
   def update
     #update a specific boat details, if you are the owner
   end
+
   def search
-    @boat = params[:boat] ? Boat.new(search_boats_query(params[:boat])) : Boat.new
-    @boats = params[:boat] ? Boat.where(search_boats_query(params[:boat])) : Boat.all
+    # @boat = params[:boat] ? Boat.new(search_boats_query(params[:boat])) : Boat.new
+    @boat = Boat.new
+    @boats = Boat.all
+
+    unless params[:boat].nil?
+      @boats = @boats.where(category: params[:boat][:category]) unless params[:boat][:category].empty?
+    # unless params[:category].empty?
+    end
+# @boats.where('capacity > ?', params[:boat][:capacity].to_i)
+
+    unless params[:boat].nil?
+      @boats = @boats.where('capacity > ?', params[:boat][:capacity].to_i) unless params[:boat][:capacity].empty?
+    # unless params[:category].empty?
+    end
+
+    unless params[:boat].nil?
+      @boats = @boats.where('price < ?', params[:boat][:price].to_i) unless params[:boat][:price].empty?
+    # unless params[:category].empty?
+    end
+
+    # @boat = params[:boat] ? Boat.new(search_boats_query(params[:boat])) : Boat.new
+    #     # @boat = Boat.new
+     #     @boats = params[:boat] ? Boat.where(search_boats_query(params[:boat])) : Boat.all
   end
+
+
   private
 
   def set_boat
@@ -64,6 +88,7 @@ class BoatsController < ApplicationController
     query = {}
     query[:category] = params[:category] unless params[:category].empty?
     query[:capacity] = params[:capacity] unless params[:capacity].empty?
+    query[:location] = params[:location].capitalize unless params[:location].empty?
 
     query
   end
