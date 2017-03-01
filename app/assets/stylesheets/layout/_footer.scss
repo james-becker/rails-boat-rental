@@ -1,1 +1,61 @@
-// Your footer style
+.follow-us {
+  text-align:center;
+  margin-top: 20px;
+}
+
+.footer {
+  background-color: #fbfaf8;
+  height:160px;
+  color: #A7A398;
+  justify-content: space-between;
+  border-top: 1px solid rgba(184,133,37,0.3);
+  width:100vw;
+      padding-left: 40px;
+    padding-top: 20px;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar-wagon-link {
+  color: #b88525;
+  font-size: 14px;
+}
+.navbar-wagon-link:hover {
+  color: #b88525;
+  text-decoration: none;
+  border-color: white;
+}
+
+.social-media {
+  margin-top: 15px;
+}
+
+.social-media li {
+  display: inline-block;
+  margin: 0 12px 18px 0;
+}
+
+.social-link {
+  text-align: left;
+  color: #b88525;
+  display: inline-block;
+  width: 27px;
+  height: 25px;
+}
+
+.social-link:hover {
+    color: #857f70;
+    text-decoration: none;
+}
+
+
+.footer-title:after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 50%;
+    background: #857f70;
+}
