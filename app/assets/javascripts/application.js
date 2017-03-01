@@ -5,5 +5,11 @@
 //= require attachinary
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 
+
+$(document).ready(function() {
+ // $('.cloudinary-fileupload').fileupload('option', 'replaceFileInput', false);
+});
