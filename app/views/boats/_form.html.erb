@@ -5,8 +5,8 @@
   <%= f.input :description, placeholder: "The awerrrrr-somest ship in the seven seas! Parrot included!" %>
   <%= f.input :price, placeholder: "70 doubloons" %>
   <%= f.input :location, placeholder: "Blackbeard's Bluff" %>
-  <%= f.input :user_id, as: 'hidden', value: current_user %>
-  <%= f.hidden_field :user_id, value: current_user %>
+  <%= f.input :user_id, as: 'hidden', value: current_user.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.input :photos, as: :attachinary %>
   <%= f.button :submit, class: 'button-book-boat center-block'  %>
 <% end %>

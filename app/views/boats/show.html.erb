@@ -32,9 +32,9 @@
 
   <% if user_signed_in? && @boat.user == current_user %>
   <!-- Button delete for owner only  -->
-    <%= button_to "Edit Boat", boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :delete %>
+    <%= button_to "Delete Boat", boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :delete %>
   <!-- Button edit boat for owner only  -->
-    <%= button_to "Delete Boat", edit_boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :get %>
+    <%= button_to "Edit Boat", edit_boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :get %>
   <% else %>
     <%= button_to "Book", button_path, :class => "btn btn-default button-book-boat", :method => :get %>
   <% end %>
