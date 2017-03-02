@@ -14,7 +14,7 @@ Contact <%= link_to @owner_name %>
 <!-- Code to show buttons on boat page depending on user -->
 
 <!-- Button booking for users only  -->
-<%= if @boat.user = @owner %>
+<% if @boat.user = @owner %>
 <%= button_to "Book", new_boat_reservation_path, :class => "btn btn-default button-book-boat", :method => :get %>
 <% else %>
 
