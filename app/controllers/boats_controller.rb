@@ -1,8 +1,5 @@
 class BoatsController < ApplicationController
-
-
-  # skip_before_action :authenticate_user!, only: [:index,:search]
-
+  skip_before_action :authenticate_user!, only: [:index, :search, :show]
   before_action :set_boat, except: [:search, :index, :new, :create]
 
   def index
