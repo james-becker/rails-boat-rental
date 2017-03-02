@@ -85,7 +85,7 @@
 .boat-banner {
   color: white;
   text-align: center;
-  height: 500px;
+  height: 400px;
   width: 100vw;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: contain !important;
@@ -117,11 +117,12 @@
 .button-book-boat:hover {
     background: #b88525;
     color: #fbfaf8;
-  }
-  .container-logo {
-    margin-top:20px;
-    margin-bottom:20px;
-  }
+}
+
+.container-logo {
+  margin-top:20px;
+  margin-bottom:20px;
+}
 
 
 <<<<<<< HEAD

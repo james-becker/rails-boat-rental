@@ -15,7 +15,7 @@
 
           <%= f.input :location, placeholder:"Location...", label: false, input_html: {location: 'location', class: 'location'} %>
 
-          <%= f.button :submit, value: "Book now", class: 'button-book-online'%>
+          <%= f.button :submit, value: "Book now", class: 'gold-button'%>
 
           <% end %>
         </div>
@@ -32,13 +32,9 @@
 <div class="wrapper">
   <div class="container padded">
     <h3 class=text-center>Our selection</h3>
-    <div class="row">
-
-
-      <% @boats.each do |boat| %>
-      <div class= "col-sm-4">
-        <%= render "boats/show_card", boat: boat %>
-      </div>
+    <div class="row flex-box">
+      <% @boats.first(3).each do |boat| %>
+        <%= render "boats/boat_search_result_card", boat: boat %>
       <% end %>
     </div>
   </div>
@@ -111,7 +107,8 @@
             <li>See all listings</li>
             <li>Contact boat owner</li>
             <li>Book safely online</li>
-            <%= button_to "Find a boat", boats_path, :class => "btn btn-default button-book-boat", :method => :get %>
+            <br>
+            <%= button_to "Find a boat", boats_path, :class => "btn btn-default gold-button", :method => :get %>
           </ul>
 
         </div>
@@ -121,7 +118,8 @@
             <li>Create a free advertisment</li>
             <li>Monetize your boat</li>
             <li>Optional insurance</li>
-            <%= button_to "Estimate my earnings", new_boat_path, :class => "btn btn-default button-book-boat", :method => :get %>
+            <br>
+            <%= button_to "Estimate my earnings", new_boat_path, :class => "btn btn-default gold-button", :method => :get %>
           </ul>
         </div>
       </div>
