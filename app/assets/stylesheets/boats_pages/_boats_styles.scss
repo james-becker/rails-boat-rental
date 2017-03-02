@@ -4,7 +4,7 @@
     }
 }
 
-.boat-search-result-card {
+.boat-search-result-card,.reservation-card {
     // Flexbox tutorial
     box-sizing: border-box;
     padding: 0px;
@@ -22,7 +22,7 @@
     border-bottom: #b88525 solid 1px;
 }
 
-.boat-search-card-info {
+.boat-search-card-info,.reservation-card-info {
   position: relative;
   height: 65px;
 }

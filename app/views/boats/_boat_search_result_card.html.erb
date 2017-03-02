@@ -1,12 +1,15 @@
 <div class='boat-search-result-card'>
+<%= link_to boat_path(boat) do %>
   <div class='boat-card-image' style="background-image: url('<%= cl_image_path boat.photos.first.path %>');background-size:cover;">
   </div>
+<% end  %>
   <div class="boat-search-card-info">
     <div class="card-boat-caption">
       <span class="card-boat-category"> <%= boat.category %></span>, <span class='card-boat-location'><%= boat.location %></span>
     </div>
 
     <div class="card-boat-rating-box">
+      <% if boat.reviews.average(:stars) %>
       <div class="card-boat-stars">
         <% (boat.reviews.average(:stars).round - 1).times do %>
           <%= image_tag("star", size: "16x16") %>
@@ -18,10 +21,9 @@
         <% end %>
       </div>
       <div class="card-boat-rating">
-        <% if boat.reviews.average(:stars) %>
           <%= boat.reviews.average(:stars).round(2) %>
-        <% end %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

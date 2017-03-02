@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row padded-little">
     <div class="col-sm-4 col-xs-12">
       <%= render "user_card", locals: {user: @user} %>
     </div>
@@ -9,21 +9,21 @@
     <div class="col-sm-8 col-xs-12">
       <h2> My Trips </h2>
 
-      <div class="row padded-little">
+      <div class="row reservation-card-padding-on-top">
         <% @pending_reservations.each do |res| %>
           <% @res = res %>
           <%= render "reservation_card", locals: {res: @res} %>
         <% end %>
       </div>
 
-      <div class="row padded-little">
+      <div class="row reservation-card-padding-on-top">
         <% @upcoming_reservations.each do |res| %>
           <% @res = res %>
           <%= render "reservation_card", locals: {res: @res} %>
         <% end %>
       </div>
 
-      <div class="row padded-little">
+      <div class="row reservation-card-padding-on-top">
         <% @finished_reservations.each do |res| %>
           <% @res = res %>
           <%= render "reservation_card", locals: {res: @res} %>
@@ -38,16 +38,20 @@
 
   <% if @user.boats.any? %>
 
+  <% boat = @res.boat %>
+
   <div class="row">
     <h1> My Boats </h1>
     <% @user_boats.each do |boat| %>
     <div class="col-md-4">
-      <%= render "boats/show_card", boat: boat %>
+      <%= render "boats/boat_search_result_card", boat: boat %>
     </div>
     <% end %>
-    <%= link_to "Add a boat", new_boat_path %>
   </div>
-
   <% end %>
+
+  <div class="row padded">
+    <%= link_to "Add a boat", new_boat_path, class: "gold-button add-boat-button-user-page" %>
+  </div>
 
 </div>
