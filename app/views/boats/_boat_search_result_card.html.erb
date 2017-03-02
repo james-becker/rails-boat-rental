@@ -7,6 +7,7 @@
     </div>
 
     <div class="card-boat-rating-box">
+    <% if boat.reviews.average(:stars) %>
       <div class="card-boat-stars">
         <% (boat.reviews.average(:stars).round - 1).times do %>
           <%= image_tag("star", size: "16x16") %>
@@ -18,10 +19,9 @@
         <% end %>
       </div>
       <div class="card-boat-rating">
-        <% if boat.reviews.average(:stars) %>
           <%= boat.reviews.average(:stars).round(2) %>
-        <% end %>
       </div>
+    <% end %>
     </div>
   </div>
 </div>
