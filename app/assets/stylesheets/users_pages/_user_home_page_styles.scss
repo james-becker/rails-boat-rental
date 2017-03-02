@@ -23,34 +23,26 @@
     }
   }
 }
-
-.reservation_card {
-  background-color: #F7F7F7;
-  border-radius: 10px;
-  border: 1px solid #b88525;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  padding: 30px;
-  position: relative;
-  .reservation-content {
-    flex: 1 1 0;
-    padding-left: 20px;
-    p {
-      font-size: 17px;
-    }
-    a {
-      font-size: 14px;
-    }
-  }
-  .reservation-status {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    p {
-      color: #b88525;
-      font-size: 13px;
-    }
-  }
+.reservation-dates {
+  color: #3e3e3e;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
 }
-
+.reservation-number {
+  position: absolute;
+  top: -210px;
+  color: #3e3e3e;
+}
+.reservation-status {
+  position: absolute;
+  top: -210px;
+  right: 0;
+  color: #3e3e3e;
+}
+.reservation-card-padding-on-top {
+  padding-top: 40px;
+}
+.add-boat-button-user-page {
+  padding: 20px;
+}
