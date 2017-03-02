@@ -9,26 +9,33 @@
         <div class="basic-gold-box">
           <h2><%= @boat.category %></h2>
           <h3>Capacity: <%= @boat.capacity %>
-          <p><%= @boat.description %></p>
-          <p><%= @boat.price %> per day</p>
+            <p><%= @boat.description %></p>
+            <p><%= @boat.price %> per day</p>
 
-          <p>Contact <%= link_to @owner_name %></p>
-         </div>
+            <p>Contact <%= link_to @owner_name %></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Code to show buttons on boat page depending on user -->
+  <!-- Code to show buttons on boat page depending on user -->
 
-<!-- Button booking for users only  -->
-<% if @boat.user = @owner %>
-<%= button_to "Book", new_boat_reservation_path, :class => "btn btn-default button-book-boat", :method => :get %>
-<% else %>
+  <!-- Button booking for users only  -->
 
-<!-- Button delete for owner only  -->
-<%= button_to "Edit Boat", boat_path(boat), :class => "btn btn-default button-book-boat", :method => :delete %>
+   <% if user_signed_in? %>
+          <% button_path = new_boat_reservation_path(@boat) %>
+      <% else %>
+          <% button_path = new_user_session_path(@user) %>
+    <% end %>
 
-<!-- Button edit boat for owner only  -->
-<%= button_to "Delete Boat", edit_boat_path, :class => "btn btn-default button-book-boat", :method => :get %>
-<% end %>
+
+  <% if user_signed_in? && @boat.user == current_user %>
+  <!-- Button delete for owner only  -->
+    <%= button_to "Edit Boat", boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :delete %>
+  <!-- Button edit boat for owner only  -->
+    <%= button_to "Delete Boat", edit_boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :get %>
+  <% else %>
+    <%= button_to "Book", button_path, :class => "btn btn-default button-book-boat", :method => :get %>
+  <% end %>
+
