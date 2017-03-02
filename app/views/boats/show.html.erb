@@ -1,6 +1,57 @@
-<div class="boat-banner" style="background-image: url('<%= cl_image_path @boat.photos.first.path %>');background-size:contain">
+<!-- <div class="boat-banner" style="background-image: url('<%= cl_image_path @boat.photos.first.path %>');background-size:contain">
   <h1 class="boat-caption"><%= @boat.name %> | <%= @boat.location %></h1>
+</div> -->
+
+
+
+
+
+<div class="carousel-div">
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+
+<!--   .each on pictures and sum the data-slide-to -->
+
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= cl_image_tag @boat.photos.first.path, class: "d-block img-fluid"%>
+<!--       <div class="carousel-caption">
+        ...
+      </div> -->
+    </div>
+    <div class="item">
+      <%= cl_image_tag @boat.photos[2].path, class: "d-block img-fluid" %>
+<!--       <div class="carousel-caption">
+        ...
+      </div> -->
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
+
+
+
+</div>
+
+
 
 <div class="wrapper add-boat-wrapper">
   <div class="container">
@@ -23,19 +74,23 @@
 
   <!-- Button booking for users only  -->
 
-   <% if user_signed_in? %>
-          <% button_path = new_boat_reservation_path(@boat) %>
-      <% else %>
-          <% button_path = new_user_session_path(@user) %>
-    <% end %>
+  <% if user_signed_in? %>
+  <% button_path = new_boat_reservation_path(@boat) %>
+  <% else %>
+  <% button_path = new_user_session_path(@user) %>
+  <% end %>
 
 
   <% if user_signed_in? && @boat.user == current_user %>
   <!-- Button delete for owner only  -->
-    <%= button_to "Delete Boat", boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :delete %>
+  <%= button_to "Delete Boat", boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :delete %>
   <!-- Button edit boat for owner only  -->
-    <%= button_to "Edit Boat", edit_boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :get %>
+  <%= button_to "Edit Boat", edit_boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :get %>
   <% else %>
-    <%= button_to "Book", button_path, :class => "btn btn-default button-book-boat", :method => :get %>
+  <%= button_to "Book", button_path, :class => "btn btn-default button-book-boat", :method => :get %>
   <% end %>
 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
