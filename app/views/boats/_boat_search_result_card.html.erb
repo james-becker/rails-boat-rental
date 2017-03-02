@@ -8,7 +8,12 @@
 
     <div class="card-boat-rating-box">
       <div class="card-boat-stars">
-        <% 5.times do %>
+        <% (boat.reviews.average(:stars).round - 1).times do %>
+          <%= image_tag("star", size: "16x16") %>
+        <% end %>
+        <% if boat.reviews.average(:stars).round(2) % 1 > 0 %>
+          <%= image_tag("half-star", size: "16x16") %>
+        <% else %>
           <%= image_tag("star", size: "16x16") %>
         <% end %>
       </div>
