@@ -18,6 +18,7 @@ class Boat < ApplicationRecord
   validates :location, presence: true
   validates :name, presence: true
   validates :photos, presence: true
+  validates :user_id, presence: true
 
   def self.most_booked(n)
 
