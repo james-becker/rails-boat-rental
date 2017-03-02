@@ -10,16 +10,12 @@
           <p>Rent a boat and live your dream now</p>
         </div>
 
+        <div class = "form-inline search-form form-group">
+          <%= simple_form_for @boat, url: boats_path, method: :get do |f| %>
 
+          <%= f.input :location, placeholder:"Location...", label: false, input_html: {location: 'location', class: 'location'} %>
 
-
-        <div class = "navbar-form form-inline search-form form-group">
-          <%= simple_form_for @boat, default: {url: boats_path, method: :get} do |f| %>
-
-          <%= f.input :location, placeholder:"Location...",label: false, input_html: {location: 'location', class: 'location'} %>
-
-
-          <%= f.button :submit, value: "Book now", new_boat_path, class: 'button-book-online'%>
+          <%= f.button :submit, value: "Book now", class: 'button-book-online'%>
 
           <% end %>
         </div>

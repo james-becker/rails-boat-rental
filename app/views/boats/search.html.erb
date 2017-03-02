@@ -1,15 +1,5 @@
 <div class="container">
   <div class="row">
-
-    <%= simple_form_for @boat, html: { class: "form-inline"} , :url => search_boat_path, :method => :get  do |f| %>
-      <div class="col-xs-12 ">
-          <%= f.input :location, label_html: { class: 'sr-only' }, input_html: { class: 'form_fields' }, placeholder: 'location' %>
-          <%= f.input :category, collection: Boat::CATEGORIES, label_html: { class: 'sr-only ' }, input_html: { class: 'form_fields' }, prompt: 'category' %>
-          <%= f.input :capacity, collection: Boat::CAPACITIES, label_html: { class: 'sr-only' }, input_html: { class: 'form_fields' },prompt: 'capacity' %>
-          <%= f.input :price, label_html: { class: 'sr-only' }, input_html: { class: 'form_fields' }, placeholder: 'price max'  %>
-          <%= f.button :submit, "Search!", :class => 'gold-button' %>
-            %>
-      </div>
-    <% end %>
+    <%= render 'search_bar' %>
   </div>
 </div>
