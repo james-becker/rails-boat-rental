@@ -24,13 +24,26 @@
 
     <!-- Text link -->
     <% if user_signed_in? %>
-    <%= link_to "Log Out",  destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete %>
+
+
+<div class="navbar-wagon-item">
+      <div class="dropdown">
+
+
+<%= cl_image_tag current_user.photo.path, width: 55, height: 55, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", data: { "toggle" => "dropdown"} %>
+
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Profile",  users_show_profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><%= link_to "Log Out",  destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete %></li>
+        </ul>
+      </div>
+    </div>
+
     <% else %>
     <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
-
-    <!-- Text link -->
     <%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+        <!-- Profile picture and dropdown -->
 
     <!-- Notification link-->
 
