@@ -3,7 +3,7 @@
 <p> Reservation notes</p> <%= @reservation.notes %>
 <p> People for this trip: </p> <%= @reservation.count %>
 
-<p> You are <%= @reservation.status %> with your visit to <%= link_to @boat.name, @boat %> </p>
+<p> You are <%= @reservation.status %> with your visit to <%= link_to @reservation.boat.name, @reservation.boat %> </p>
 <%= link_to "edit", edit_reservation_path(@reservation) %>
 <%= link_to "delete", reservation_path(@reservation), method: :delete %>
 <br>

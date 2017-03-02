@@ -1,4 +1,3 @@
-
 <div class="wrapper add-boat-wrapper">
   <div class="container">
     <div class="row">
@@ -17,6 +16,7 @@
                 <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
                 <%= f.input :password_confirmation, required: true %>
                 <%= f.input :dob, required: true, input_html: {"data-provide": 'datepicker'} %>
+                <%= f.input :photo, as: :attachinary %>
               </div>
 
               <div class="form-actions">
