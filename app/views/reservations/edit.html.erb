@@ -5,7 +5,7 @@
         <div class="basic-gold-box">
           <h1>Edit Reservation</h1>
           <br>
-          <p>You are editing your reservation for <%= @boat.name %>, the <%= @boat.category %>.</p>
+          <p>You are editing your reservation for <%= @reservation.boat.name %>, the <%= @reservation.boat.category %>.</p>
           <br>
           <br>
           <%= simple_form_for @reservation do |f| %>

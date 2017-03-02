@@ -78,7 +78,7 @@ class BoatsController < ApplicationController
       elsif key == "price"
         @boats = @boats.where('price < ?', params[:boat][:price].to_i) unless params[:boat][:price].empty?
       else
-        @boats = @boats.where(key.to_sym => params[:boat][key]) unless params[:boat][key].empty?
+        @boats = @boats.where(key + " LIKE ?", "%#{params[:boat][key]}%") unless params[:boat][key].empty?
       end
     end
   end
