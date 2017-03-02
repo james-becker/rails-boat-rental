@@ -1,8 +1,20 @@
-You are making a review for <%= @boat.name %>, the <%= @boat.category %>.
-<br>
-<br>
-<%= simple_form_for :review, url: boat_reviews_path(@boat) do |f| %>
-  <%= f.input :content, required: true %>
-  <%= f.input :stars, required: true, integer: true, hint: "From 0 to 5", collection: [0,1,2,3,4,5]  %>
-  <%= f.button :submit %>
-<% end %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+        <div class="basic-gold-box">
+          <h1>Add a Review</h1>
+          <br>
+          <p>You are making a review for <%= @boat.name %>, the <%= @boat.category %>.</p>
+          <br>
+          <br>
+          <%= simple_form_for :review, url: boat_reviews_path(@boat) do |f| %>
+            <%= f.input :content, required: true %>
+            <%= f.input :stars, required: true, integer: true, hint: "From 0 to 5", collection: [0,1,2,3,4,5]  %>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
