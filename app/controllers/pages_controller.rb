@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: [:home, :about]
 
   def home
     #view home page
@@ -7,6 +7,11 @@ class PagesController < ApplicationController
     @boats = Boat.most_booked(3)
     @boat = Boat.new
     # 2. return n most booked
+
+  end
+
+  def about
+
 
   end
 end
