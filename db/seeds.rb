@@ -1,6 +1,6 @@
 require 'faker'
 
-4.times do |i|
+2.times do |i|
 
   user = User.new
   user.first_name = Faker::Name.first_name
