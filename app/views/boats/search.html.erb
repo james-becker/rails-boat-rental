@@ -1,5 +1,17 @@
 <div class="container">
   <div class="row">
+  <% @boats.each do |boat| %>
+  <tr>
+    # <td><%= boat.name %>, <%= boat.price %> €, <%= boat.capacity %> pax, <%= boat.location %></td>
+  </tr>
+  <% end  %>
+
+
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDZr8TMXbR-_Xny4nMRE7gWSWoO8EPqDRY"></script>
+<% end %>
+
     <%= render 'search_bar' %>
   </div>
 </div>
