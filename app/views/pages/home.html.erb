@@ -15,7 +15,7 @@
 
           <%= f.input :location, placeholder:"Location...", label: false, input_html: {location: 'location', class: 'location'} %>
 
-          <%= f.button :submit, value: "Book now", class: 'button-book-online'%>
+          <%= f.button :submit, value: "Book now", class: 'gold-button'%>
 
           <% end %>
         </div>
@@ -111,7 +111,8 @@
             <li>See all listings</li>
             <li>Contact boat owner</li>
             <li>Book safely online</li>
-            <%= button_to "Find a boat", boats_path, :class => "btn btn-default button-book-boat", :method => :get %>
+            <br>
+            <%= button_to "Find a boat", boats_path, :class => "btn btn-default gold-button", :method => :get %>
           </ul>
 
         </div>
@@ -121,7 +122,8 @@
             <li>Create a free advertisment</li>
             <li>Monetize your boat</li>
             <li>Optional insurance</li>
-            <%= button_to "Estimate my earnings", new_boat_path, :class => "btn btn-default button-book-boat", :method => :get %>
+            <br>
+            <%= button_to "Estimate my earnings", new_boat_path, :class => "btn btn-default gold-button", :method => :get %>
           </ul>
         </div>
       </div>
