@@ -19,3 +19,16 @@
   </div>
 </div>
 
+<!-- Code to show buttons on boat page depending on user -->
+
+<!-- Button booking for users only  -->
+<%= if @boat.user = @owner %>
+<%= button_to "Book", new_boat_reservation_path, :class => "btn btn-default button-book-boat", :method => :get %>
+<% else %>
+
+<!-- Button delete for owner only  -->
+<%= button_to "Edit Boat", boat_path(boat), :class => "btn btn-default button-book-boat", :method => :delete %>
+
+<!-- Button edit boat for owner only  -->
+<%= button_to "Delete Boat", edit_boat_path, :class => "btn btn-default button-book-boat", :method => :get %>
+<% end %>
