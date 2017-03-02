@@ -1,44 +1,47 @@
-<!-- BOAT MAP implementation  -->
-<div class="container">
-<div class="row">
-  <!-- END BOAT MAP implementation -->
-  <div class="results-left">
-    <div class="search-form-boats">
-      <div class="col-md-10 col-md-offset-1">
-        <%= render 'search_bar' %>
-      </div>
-    </div>
-    <div class="boat-results">
-      <% @boats.first(6).each do |boat| %>
-        <div class="col-md-4 col-md-offset-1">
-          <%= render "show_card", boat: boat %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row boat-index-row">
 
-  <div class="map-right">
-    <div id="map"></div>
-    <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-      $(document).ready(function() {
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function() {
-          markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          if (markers.length == 0) {
-            handler.getMap().setZoom(2);
-          } else if (markers.length == 1) {
+      <!-- MAP PORTION OF PAGE -->
+
+      <div class="col-sm-4">
+        <div class="map-float"><!--start map -->
+          <div id="map">
+            <% content_for(:after_js) do %>
+              <%= javascript_tag do %>
+              $(document).ready(function() {
+              var handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function() {
+              markers = handler.addMarkers(<%= raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+              if (markers.length == 0) {
+              handler.getMap().setZoom(2);
+            } else if (markers.length == 1) {
             handler.getMap().setZoom(14);
-          }
-        });
-      });
-    <% end %>
-  <% end %>
+              }
+            });
+          });
+          <% end %>
+          <% end %>
+          </div>
+        </div><!--end map -->
+      </div>
+
+      <!-- RESULTS PORTION OF PAGE -->
+
+      <div class="col-sm-8">
+        <div class="boat-search-form">
+          <%= render 'search_bar' %>
+        </div>
+
+        <div class="boat-search-results">
+          <% @boats.first(6).each do |boat| %>
+              <%= render "boat_search_result_card", boat: boat %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
   </div>
-
-
 </div>
-</div>
-

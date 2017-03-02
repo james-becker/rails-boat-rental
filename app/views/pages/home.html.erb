@@ -32,13 +32,9 @@
 <div class="wrapper">
   <div class="container padded">
     <h3 class=text-center>Our selection</h3>
-    <div class="row">
-
-
-      <% @boats.each do |boat| %>
-      <div class= "col-sm-4">
-        <%= render "boats/show_card", boat: boat %>
-      </div>
+    <div class="row flex-box">
+      <% @boats.first(3).each do |boat| %>
+        <%= render "boats/boat_search_result_card", boat: boat %>
       <% end %>
     </div>
   </div>

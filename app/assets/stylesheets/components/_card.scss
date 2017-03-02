@@ -11,7 +11,7 @@
 }
 
 .card {
-  position:relative;
+  position:absolute;
   height: 250px;
   width: 320px;
   // background: #e3e3e3;
@@ -22,31 +22,58 @@
   margin: 10px;
 }
 
-.card-boat-name {
-  position:absolute;
-  font-weight: bold;
-  font-size: 40px;
-  left: 20px;
-  top: 20px;
+.boat-card-image {
+  height: 185px;
+}
+
+.card-boat-caption {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
 }
 
 .card-boat-category {
-  color: #e3e3e3;
-  position:absolute;
-  font-weight: bold;
-  font-size: 30px;
-  left: 20px;
-  top: 60px;
+  color: #3e3e3e;
+  font-weight: 100;
+  font-size: 22px;
 }
 
-.card-stars {
-  position:absolute;
-  font-weight: bold;
-  font-size: 20px;
-  top: 30px;
-  right: 20px;
-  text-align: right;
+.card-boat-location {
+  color: #3e3e3e;
+  font-weight: 100;
+  font-size: 14px;
 }
+
+.card-boat-rating-box {
+  position: absolute;
+  width: 150px;
+  top: 5px;
+  left: 5px;
+}
+
+.card-boat-name {
+  position: absolute;
+  font-weight: 100;
+  font-size: 14px;
+  color: #3e3e3e;
+  top: 5px;
+  right: 5px;
+}
+
+.card-boat-rating {
+  position: absolute;
+  left: 110px;
+  top: 5px;
+  color: #3e3e3e;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.card-boat-stars {
+  position:absolute;
+  text-align: left;
+}
+
 
 .card-description {
   position:absolute;
