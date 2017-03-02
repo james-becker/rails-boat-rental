@@ -1,10 +1,22 @@
-You are making a reservation for <%= @boat.name %>, the <%= @boat.category %>.
-<br>
-<br>
-<%= simple_form_for :reservation, url: boat_reservations_path(@boat) do |f| %>
-  <%= f.input :start_time, required: true, input_html: {"data-provide": 'datepicker'} %>
-  <%= f.input :end_time, required: true, input_html: {"data-provide": 'datepicker'} %>
-  <%= f.input :notes, hint: "Say hi to your host." %>
-  <%= f.input :count, hint: "How many of you are staying?" %>
-  <%= f.button :submit %>
-<% end %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+        <div class="basic-gold-box">
+          <h1>New Reservation</h1>
+          <br>
+          <p>You are making a reservation for <%= @boat.name %>, the <%= @boat.category %>.</p>
+          <br>
+          <br>
+          <%= simple_form_for :reservation, url: boat_reservations_path(@boat) do |f| %>
+            <%= f.input :start_time, required: true, input_html: {"data-provide": 'datepicker'} %>
+            <%= f.input :end_time, required: true, input_html: {"data-provide": 'datepicker'} %>
+            <%= f.input :notes, hint: "Say hi to your host." %>
+            <%= f.input :count, hint: "How many of you are staying?" %>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,22 @@
-<%= simple_form_for @reservation do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.input :notes %>
-  <%= f.input :count %>
-  <%= f.button :submit %>
-<% end %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+        <div class="basic-gold-box">
+          <h1>Edit Reservation</h1>
+          <br>
+          <p>You are editing your reservation for <%= @boat.name %>, the <%= @boat.category %>.</p>
+          <br>
+          <br>
+          <%= simple_form_for @reservation do |f| %>
+            <%= f.input :start_time %>
+            <%= f.input :end_time %>
+            <%= f.input :notes %>
+            <%= f.input :count %>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

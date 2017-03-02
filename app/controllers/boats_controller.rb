@@ -1,8 +1,5 @@
 class BoatsController < ApplicationController
-
-
-  # skip_before_action :authenticate_user!, only: [:index,:search]
-
+  skip_before_action :authenticate_user!, only: [:index, :search, :show]
   before_action :set_boat, except: [:search, :index, :new, :create]
 
   def index
@@ -10,15 +7,7 @@ class BoatsController < ApplicationController
     @boats = Boat.all
 
     unless params[:boat].nil?
-      @boats = @boats.where(category: params[:boat][:category]) unless params[:boat][:category].empty?
-    end
-
-    unless params[:boat].nil?
-      @boats = @boats.where('capacity > ?', params[:boat][:capacity].to_i) unless params[:boat][:capacity].empty?
-    end
-
-    unless params[:boat].nil?
-      @boats = @boats.where('price < ?', params[:boat][:price].to_i) unless params[:boat][:price].empty?
+      set_boats
     end
 
     @boats_on_map = @boats.where.not(latitude: nil, longitude: nil)
@@ -26,8 +15,9 @@ class BoatsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@boats_on_map) do |boat, marker|
       marker.lat boat.latitude
       marker.lng boat.longitude
-      # marker.infowindow render_to_string(partial: "/boats/map_box", locals: { boat: boat })
+      marker.infowindow render_to_string(:partial => "/boats/map_box", :locals => { :boat => boat})
     end
+
 
   end
 
@@ -71,13 +61,6 @@ class BoatsController < ApplicationController
     redirect_to boats_path
   end
 
-  def search
-    @boats = Boat.all
-    @boat = Boat.new
-
-
-  end
-
   private
 
   def set_boat
@@ -87,12 +70,18 @@ class BoatsController < ApplicationController
   def boat_params
     params.require(:boat).permit(:description, :category, :capacity, :price, :location, :user_id, :name, photos: [])
   end
-  def search_boats_query(params)
-    query = {}
-    query[:category] = params[:category] unless params[:category].empty?
-    query[:capacity] = params[:capacity] unless params[:capacity].empty?
-    query[:location] = params[:location].capitalize unless params[:location].empty?
 
-    query
+  def set_boats
+    params[:boat].keys.each do |key|
+      if key == "capacity"
+        @boats = @boats.where('capacity > ?', params[:boat][:capacity].to_i) unless params[:boat][:capacity].empty?
+      elsif key == "price"
+        @boats = @boats.where('price < ?', params[:boat][:price].to_i) unless params[:boat][:price].empty?
+      else
+        @boats = @boats.where(key.to_sym => params[:boat][key]) unless params[:boat][key].empty?
+      end
+    end
   end
+
+
 end
