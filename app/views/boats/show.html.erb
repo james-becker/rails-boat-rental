@@ -1,24 +1,34 @@
 <div class="boat-banner" style="background-image: url('<%= cl_image_path @boat.photos.first.path %>');background-size:contain">
+  <h1 class="boat-caption"><%= @boat.name %> | <%= @boat.location %></h1>
 </div>
 
 <div class="wrapper add-boat-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-        <div class="add-boat-form-box">
+        <div class="basic-gold-box">
+          <h2><%= @boat.category %></h2>
+          <h3>Capacity: <%= @boat.capacity %>
+          <p><%= @boat.description %></p>
+          <p><%= @boat.price %> per day</p>
 
-          <h1 class="boat-caption"><%= @boat.name %> | <%= @boat.location %></h1>
-
-        <h2><%= @boat.category %></h2>
-        <h3>Capacity: <%= @boat.capacity %></h3>
-        <p><%= @boat.description %></p>
-        <p><%= @boat.price %> per day</p>
-
-        Contact <%= link_to @owner_name %>
-
-
-
+          <p>Contact <%= link_to @owner_name %></p>
+         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Code to show buttons on boat page depending on user -->
+
+<!-- Button booking for users only  -->
+<%= if @boat.user = @owner %>
+<%= button_to "Book", new_boat_reservation_path, :class => "btn btn-default button-book-boat", :method => :get %>
+<% else %>
+
+<!-- Button delete for owner only  -->
+<%= button_to "Edit Boat", boat_path(boat), :class => "btn btn-default button-book-boat", :method => :delete %>
+
+<!-- Button edit boat for owner only  -->
+<%= button_to "Delete Boat", edit_boat_path, :class => "btn btn-default button-book-boat", :method => :get %>
+<% end %>

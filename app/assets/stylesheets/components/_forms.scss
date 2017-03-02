@@ -1,20 +1,7 @@
 .input-max-width {
   background-color: red !important;
-  width: 300px !important;
+  width: 100px !important;
 }
-
-// #new_boat input {
-//   margin: 0 30px;
-// }
-
-
-// #new_boat select {
-//   margin: 0 30px;
-//   width: 100px;
-// }
-
-
-
 .select{
   border-radius: 0px;
   -webkit-appearance: none;
@@ -25,20 +12,6 @@
   line-height: 36px !important;
 
 }
-// .string{
-//   background-color: white !important;
-//   width: 200px !important;
-//   border: 1px solid #b88525;
-//   border-radius: 0px;
-// }
-
-// .float{
-//   background-color: white !important;
-//   width: 200px !important;
-//   border: 1px solid #b88525;
-//   border-radius: 0px;
-// }
-
 
 .form_fields{
   background-color: white !important;
@@ -47,27 +20,4 @@
   font-size: 14px !important;
   font-weight: lighter;
   margin: 0 10px;
-}
-
-
-#boat_location{
-  width: 300px !important;
-}
-
-#boat_category{
-  width: 200px !important;
-
-}
-
-
-#boat_capacity{
-  width: 200px !important;
-}
-
-
-
-#boat_price{
-
-
-  width: 120px !important;
 }
