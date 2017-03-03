@@ -45,12 +45,10 @@
 
         <% end %>
       </div>
-
-
-
     </div>
 
     <% if !current_user.reservations.any? %>
+
 
       <div class='watermark-small'>
         <i class="fa fa-ship" aria-hidden="true"></i>
@@ -72,13 +70,11 @@
         <%= render "boats/boat_search_result_card", boat: boat %>
       </div>
       <% end %>
-
     </div>
     <% end %>
 
     <div class="row padded text-center">
       <%= link_to "Add a boat", new_boat_path, class: "btn gold-button" %>
     </div>
-
   </div>
 </div>

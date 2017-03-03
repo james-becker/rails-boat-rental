@@ -1,75 +1,96 @@
 
-<div class="carousel-div">
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-   <!-- Indicators -->
-   <ol class="carousel-indicators">
+<div class="wrapper">
+  <div class="carousel-div">
+  <h3> <%= @boat.name %> </h3>
+  <br>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+     <!-- Indicators -->
+     <ol class="carousel-indicators">
 
-     <% @boat.photos.length.times do |i| %>
-     <% if i == 0 %>
-     <li data-target="#carousel-example-generic" data-slide-to="<%= i %>" class="active"></li>
-     <% else %>
-     <li data-target="#carousel-example-generic" data-slide-to="<%= i %>"></li>
-     <% end %>
-     <% end %>
-   </ol>
+       <% @boat.photos.length.times do |i| %>
+       <% if i == 0 %>
+       <li data-target="#carousel-example-generic" data-slide-to="<%= i %>" class="active"></li>
+       <% else %>
+       <li data-target="#carousel-example-generic" data-slide-to="<%= i %>"></li>
+       <% end %>
+       <% end %>
+     </ol>
 
-   <div class="carousel-inner" role="listbox">
-     <% @boat.photos.length.times do |i| %>
-     <% if i == 0 %>
-     <div class="item active">
-       <%= cl_image_tag @boat.photos[i].path, class: "d-block img-fluid"%>
+     <div class="carousel-inner" role="listbox">
+       <% @boat.photos.length.times do |i| %>
+       <% if i == 0 %>
+       <div class="item active">
+         <%= cl_image_tag @boat.photos[i].path, class: "d-block img-fluid"%>
+       </div>
+       <% else %>
+       <div class="item">
+         <%= cl_image_tag @boat.photos[i].path, class: "d-block img-fluid" %>
+       </div>
+       <% end %>
+       <% end %>
      </div>
-     <% else %>
-     <div class="item">
-       <%= cl_image_tag @boat.photos[i].path, class: "d-block img-fluid" %>
-     </div>
-     <% end %>
-     <% end %>
+
+     <!-- Controls -->
+     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+       <span class="sr-only">Previous</span>
+     </a>
+     <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+       <span class="sr-only">Next</span>
+     </a>
    </div>
-
-   <!-- Controls -->
-   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-     <span class="sr-only">Previous</span>
-   </a>
-   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-     <span class="sr-only">Next</span>
-   </a>
  </div>
-</div>
 
-<div class="wrapper add-boat-wrapper">
-  <div class="container">
-    <div class="description-boat">
-      <div class="row">
-        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-          <div class="basic-gold-box">
-            <h2><%= @boat.category %></h2>
-            <h3>Capacity: <%= @boat.capacity %></h3>
+
+ <div class="wrapper add-boat-wrapper">
+  <div class="container description-boat">
+    <div class="row">
+      <div class="container">
+        <div class="row">
+
+
+          <div class="col-sm-4 col-xs-12">
+            <% @user = @owner %>
+            <%= render "users/user_card", locals: {user: @user} %>
+            <div class="align-button">
+              <%= button_to "View profile", users_show_profile_path(@user), :class => "btn btn-default button-book-boat", :method => :get %>
+            </div>
+          </div>
+
+
+          <div class="col-sm-8 col-xs-12">
+            <div class="basic-gold-box">
+              <h2><%= @boat.category %></h2>
+              <h3>Capacity: <%= @boat.capacity %></h3>
               <p><%= @boat.description %></p>
               <p><%= @boat.price %> per day</p>
 
               <p>Contact <%= link_to @owner_name %></p>
-              <!-- Code to show buttons on boat page depending on user -->
+              <div class="row">
 
-              <!-- Button booking for users only  -->
+                <!-- Code to show buttons on boat page depending on user -->
 
-              <% if user_signed_in? %>
-              <% button_path = new_boat_reservation_path(@boat) %>
-              <% else %>
-              <% button_path = new_user_session_path(@user) %>
-              <% end %>
+                <!-- Button booking for users only  -->
+
+                <% if user_signed_in? %>
+                <% button_path = new_boat_reservation_path(@boat) %>
+                <% else %>
+                <% button_path = new_user_session_path(@user) %>
+                <% end %>
 
 
-              <% if user_signed_in? && @boat.user == current_user %>
-              <!-- Button delete for owner only  -->
-              <%= button_to "Delete Boat", boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :delete %>
-              <!-- Button edit boat for owner only  -->
-              <%= button_to "Edit Boat", edit_boat_path(@boat), :class => "btn btn-default button-book-boat", :method => :get %>
-              <% else %>
-              <%= button_to "Book", button_path, :class => "btn btn-default button-book-boat", :method => :get %>
-              <% end %>
+                <% if user_signed_in? && @boat.user == current_user %>
+                <!-- Button delete for owner only  -->
+                <%= button_to "Delete Boat", boat_path(@boat), :class => "btn btn-default button-book-boat center-button", :method => :delete %>
+                <!-- Button edit boat for owner only  -->
+                <%= button_to "Edit Boat", edit_boat_path(@boat), :class => "btn btn-default button-book-boat center-button", :method => :get %>
+                <% else %>
+                <%= button_to "Book", button_path, :class => "btn btn-default button-book-boat center-button", :method => :get %>
+                <% end %>
+
+
+              </div>
             </div>
           </div>
         </div>
@@ -77,5 +98,5 @@
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>

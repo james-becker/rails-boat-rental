@@ -8,9 +8,28 @@
   color: #b88525;
   font-size: 14px;
   border: 1px solid #b88525;
+  transition: all 0.3s ease;
+}
+
+.gold-button-search {
+  border-radius: 0px;
+  background-color: #fbfaf8;
+  color: #b88525;
+  font-size: 14px;
+  border: 1px solid #b88525;
+  width: 100%;
+  height: 36px;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
 .gold-button:hover {
+  color: #fbfaf8;
+  background: #b88525;
+  border-color: #fbfaf8;
+}
+
+.gold-button-search:hover {
   color: #fbfaf8;
   background: #b88525;
   border-color: #fbfaf8;
