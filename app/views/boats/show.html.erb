@@ -96,24 +96,26 @@
         </div>
 
         <div class="row">
-          <div class="basic-gold-box">
+          <div class="basic-gold-box reviews-box">
 
             <!-- Show all reviews for this boat  -->
 
             <div id="reviews">
              <% if @boat.reviews.blank? %>
-             No review yet for <%= @boat.name %>
+              No review yet for <%= @boat.name %>
              <% else %>
-             <% @boat.reviews.each do |review| %>
-             <%= render 'reviews/show', review: review %>
-             <% end %>
+               <h3>Reviews :</h3>
+               <% @boat.reviews.each do |review| %>
+                <%= render 'reviews/show', review: review %>
+               <% end %>
              <% end %>
            </div>
 
            <div class="review-button">
 
-            <% if @reservation %>
-            <% button_path = new_boat_review_path(@reservation) %>
+            <% unless @reservation.nil? %>
+            <!-- To make this button accessible only for ppl who actually rented the boat, do a if condition : if @reservation -->
+            <%= button_to "Post Review", new_boat_review_path(@boat), class: "btn btn-default button-book-boat center-button", method: :get %>
 
             <% end %>
           </div>
