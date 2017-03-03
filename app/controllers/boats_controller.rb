@@ -10,7 +10,7 @@ class BoatsController < ApplicationController
     end
 
     if params[:category]
-      @boats = @boats.where("category LIKE ?", "%#{params[:category]}%")
+      @boats = @boats.where("category LIKE ?", "%#{params[:category].downcase.titleize}%")
     end
     @boats_on_map = @boats.where.not(latitude: nil, longitude: nil)
 
