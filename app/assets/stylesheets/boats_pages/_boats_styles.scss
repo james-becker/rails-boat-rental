@@ -87,16 +87,33 @@ background-color: #F7F7F7;
 width:100vw;
 }
 
+.align-button {
+  text-align: center;
+}
+
 
 #carousel-example-generic {
-  margin-left: 100px;
-  margin-right: 100px;
+  // margin-left: 100px;
+  // margin-right: 100px;
   height: 400px;
   width:1000px;
   margin-top: 100px;
   padding-bottom: 30px;
+  margin: 0 auto;
 }
 
+.description {
+  width: 1033px;
+  display:inline;
+}
+
+.description-boat {
+  padding-bottom: 50px;
+}
+
+.button_to {
+  margin-top: 5px;
+}
 
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
@@ -105,4 +122,12 @@ width:100vw;
     width: 1000px;
     height: 400px;
     line-height: 1;
+}
+
+.center-button {
+    margin: 0 auto;
+    left: 50%;
+    position: relative;
+    padding-bottom:10px;
+    padding-top:10px;
 }
