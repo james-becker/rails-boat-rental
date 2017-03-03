@@ -10,7 +10,7 @@ module BoatsHelper
       return {
         full: full.round,
         half: half.round,
-        empty: empty.round
+        empty: empty.floor
       }
     else
       return nil
