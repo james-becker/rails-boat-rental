@@ -99,7 +99,7 @@
   font-weight: lighter;
   color: #666666;
   border: 1px solid #E6E6E6;
-  border-radius: 5px;
+  border-radius: 0px;
   padding: 0 10px;
   font-size: 14px;
   outline: none;
@@ -111,10 +111,11 @@
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
-  box-shadow: 1px 1px 4px #E6E6E6;
+  box-shadow: 0px 0px 0px 0px #e3e3e3;
   background-color: #FFFFFF;
   border-color: #b88525;
 }
+
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
@@ -137,6 +138,10 @@
   top: -6px;
   background-color: white;
   transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
+  border-left: 1px solid #b88525;
+  border-top: 1px solid #b88525;
+}
+
+.dropdown-menu {
+  border-radius: 0px;
 }
