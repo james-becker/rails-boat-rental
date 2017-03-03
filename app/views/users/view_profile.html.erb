@@ -8,7 +8,6 @@
       <div class="col-sm-8 col-xs-12">
 
         <% if current_user && current_user.id == @user.id %>
-
           <% if !current_user.reservations.any? %>
 
             <div class='watermark'>
@@ -47,17 +46,21 @@
       </div>
     </div>
 
-    <% if !current_user.reservations.any? %>
+      <% if current_user && current_user.id == @user.id %>
+        <% if !current_user.boats.any? %>
 
 
-      <div class='watermark-small'>
-        <i class="fa fa-ship" aria-hidden="true"></i>
-        <p class='watermark-text-small'>You have no boats<br>
-        <%= link_to "Add a boat", new_boat_path, class: "watermark-text-small" %>
-        </p>
-      </div>
+        <div class='watermark-small'>
+          <i class="fa fa-ship" aria-hidden="true"></i>
+          <p class='watermark-text-small'>You have no boats<br>
+          <%= link_to "Add a boat", new_boat_path, class: "watermark-text-small" %>
+          </p>
+        </div>
 
-    <% end %>
+        <% end %>
+      <% end %>
+
+      <% if current_user && current_user.id == @user.id %>
 
     <% if @user.boats.any? %>
 
@@ -71,6 +74,8 @@
       </div>
       <% end %>
     </div>
+
+    <% end %>
     <% end %>
 
     <div class="row padded text-center">
