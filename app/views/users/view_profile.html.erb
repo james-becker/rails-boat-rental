@@ -35,9 +35,9 @@
   </div>
 
   <% if @user.boats.any? %>
-
-  <% boat = @res.boat %>
-
+    <% if @res %>
+      <% boat = @res.boat %>
+    <% end %>
   <div class="row">
     <h1> My Boats </h1>
     <% @user_boats.each do |boat| %>
