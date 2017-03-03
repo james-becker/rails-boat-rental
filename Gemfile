@@ -22,6 +22,8 @@ gem 'coffee-rails'
 gem 'faker', '~> 1.4', '>= 1.4.3'
 gem "geocoder"
 
+gem 'omniauth-facebook'
+
 gem "coffee-rails"
 gem "gmaps4rails"
 
