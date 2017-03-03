@@ -1,55 +1,70 @@
-<div class="container">
-  <div class="row padded-little">
-    <div class="col-sm-4 col-xs-12">
-      <%= render "user_card", locals: {user: @user} %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row padded-little">
+
+      <div class="col-sm-4 col-xs-12">
+        <%= render "user_card", locals: {user: @user} %>
+      </div>
+        <div class="col-sm-8 col-xs-12">
+
+      <% if current_user && current_user.id == @user.id %>
+
+
+
+          <div class="row">
+            <% @pending_reservations.each do |res| %>
+              <% @res = res %>
+              <%= render "reservation_card", locals: {res: @res} %>
+            <% end %>
+          </div>
+
+          <div class="row">
+            <% @upcoming_reservations.each do |res| %>
+              <% @res = res %>
+              <%= render "reservation_card", locals: {res: @res} %>
+            <% end %>
+          </div>
+
+          <div class="row">
+            <% @finished_reservations.each do |res| %>
+              <% @res = res %>
+              <%= render "reservation_card", locals: {res: @res} %>
+            <% end %>
+          </div>
+        </div>
+
+
+
+      <% else %>
+
+
+
+        <div class='no-reservations'></div>
+
+
+
+        <% end %>
+
+
     </div>
 
-    <% if current_user && current_user.id == @user.id %>
+    <% if @user.boats.any? %>
 
-    <div class="col-sm-8 col-xs-12">
-      <div class="row">
-        <% @pending_reservations.each do |res| %>
-          <% @res = res %>
-          <%= render "reservation_card", locals: {res: @res} %>
-        <% end %>
+    <% boat = @res.boat %>
+
+    <div class="row">
+      <h1> My Boats </h1>
+      <% @user_boats.each do |boat| %>
+      <div class="col-md-4">
+        <%= render "boats/boat_search_result_card", boat: boat %>
       </div>
-
-      <div class="row">
-        <% @upcoming_reservations.each do |res| %>
-          <% @res = res %>
-          <%= render "reservation_card", locals: {res: @res} %>
-        <% end %>
-      </div>
-
-      <div class="row">
-        <% @finished_reservations.each do |res| %>
-          <% @res = res %>
-          <%= render "reservation_card", locals: {res: @res} %>
-        <% end %>
-      </div>
-
+      <% end %>
     </div>
-
     <% end %>
 
-  </div>
-
-  <% if @user.boats.any? %>
-
-  <% boat = @res.boat %>
-
-  <div class="row">
-    <h1> My Boats </h1>
-    <% @user_boats.each do |boat| %>
-    <div class="col-md-4">
-      <%= render "boats/boat_search_result_card", boat: boat %>
+    <div class="row padded">
+      <%= link_to "Add a boat", new_boat_path, class: "gold-button add-boat-button-user-page" %>
     </div>
-    <% end %>
-  </div>
-  <% end %>
 
-  <div class="row padded">
-    <%= link_to "Add a boat", new_boat_path, class: "gold-button add-boat-button-user-page" %>
   </div>
-
 </div>
