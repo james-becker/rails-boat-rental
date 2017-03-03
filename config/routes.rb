@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  devise_for :users, path_prefix: 'd', controllers: { registrations: "registrations" }
+  devise_for :users, path_prefix: 'd', controllers: { registrations: "registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
   # devise_for :users, controllers: { registrations: "registrations" }
 
   namespace :users do
