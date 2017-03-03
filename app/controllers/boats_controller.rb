@@ -5,11 +5,13 @@ class BoatsController < ApplicationController
   def index
     @boat = Boat.new
     @boats = Boat.all
-
     unless params[:boat].nil?
       set_boats
     end
 
+    if params[:category]
+      @boats = @boats.where("category LIKE ?", "%#{params[:category]}%")
+    end
     @boats_on_map = @boats.where.not(latitude: nil, longitude: nil)
 
     @hash = Gmaps4rails.build_markers(@boats_on_map) do |boat, marker|
@@ -78,7 +80,7 @@ class BoatsController < ApplicationController
       elsif key == "price"
         @boats = @boats.where('price < ?', params[:boat][:price].to_i) unless params[:boat][:price].empty?
       else
-        @boats = @boats.where(key + " LIKE ?", "%#{params[:boat][key]}%") unless params[:boat][key].empty?
+        @boats = @boats.where(key + " LIKE ?", "%#{params[:boat][key].titleize}%") unless params[:boat][key].empty?
       end
     end
   end

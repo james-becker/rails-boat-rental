@@ -1,22 +1,42 @@
-<div class="col-xs-12 padded-little">
-  <div class="reservation_card">
-    <div class="reservation-image">
-    <%= cl_image_tag @res.boat.photos.first.path, width: 200, height: 250, crop: :fill %>
+  <div class="reservation-card">
+  <%= link_to reservation_path(@res) do %>
+  <div class='boat-card-image' style="background-image: url('<%= cl_image_path @res.boat.photos.first.path %>');background-size:cover;">
+  </div>
+  <% end %>
+  <div class="reservation-card-info">
+    <div class="card-boat-caption">
+      <span class="card-boat-category"> <%= @res.boat.category %></span>, <span class='card-boat-location'><%= @res.boat.location %></span>
     </div>
-  <div class="reservation-content">
 
-    <p> From <strong><%= @res.start_time %> </strong> to <strong> <%= @res.end_time %> </strong> </p>
-    <br>
-    <p> You and <%= @res.count - 1 %> others are travelling on the <%= link_to @res.boat.name, boat_path(@res.boat) %> </p>
-    <br>
-    <p> <%= @res.notes %> </p>
-    <br>
-    <%= link_to "edit reservation", edit_reservation_path(@res), class: "edit_reservation" %>
-    <br>
-    <%= link_to "cancel", reservation_path(@res), method: :delete %>
+    <div class="card-boat-rating-box">
+      <% if @res.boat.reviews.average(:stars) %>
+      <div class="card-boat-stars">
+        <% (@res.boat.reviews.average(:stars).round - 1).times do %>
+          <%= image_tag("star", size: "16x16") %>
+        <% end %>
+        <% if @res.boat.reviews.average(:stars).round(2) % 1 > 0 %>
+          <%= image_tag("half-star", size: "16x16") %>
+        <% else %>
+          <%= image_tag("star", size: "16x16") %>
+        <% end %>
+      </div>
+      <div class="card-boat-rating">
+          <%= @res.boat.reviews.average(:stars).round(2) %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="reservation-dates">
+     <strong> <%= @res.start_time %> to <%= @res.end_time %> </strong>
+    </div>
+    <div class="reservation-number">
+      You and <%= @res.count - 1 %> others!
+    </div>
+    <div class="reservation-status">
+      Status: <%= @res.status %>
+    </div>
   </div>
-  <div class="reservation-status">
-    <p> <strong> <%= @res.status %> </strong> </p>
   </div>
-  </div>
-</div>
+
+
+

@@ -27,3 +27,9 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.bg-wrapper {
+  background-size: cover;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),
+  url( http://localhost:3000/assets/background-16c83dee998191624b64653b64461ea134fac573c07d5a6e378be4e360218de4.jpg);
+}

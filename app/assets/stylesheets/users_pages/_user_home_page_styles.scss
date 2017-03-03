@@ -1,56 +1,57 @@
 .user-card {
-  background-color: #F7F7F7;
-  position: relative;
-  border: 1px solid #b88525;
-  border-radius: 3px;
-  padding: 10px;
+  // background-color: #F7F7F7;
+  // position: relative;
+  // border: 1px solid #b88525;
+  // border-radius: 3px;
+  // padding: 10px;
+  // height: 300px;
+  text-align: center;
   .edit-user {
     font-size: 12px;
-    position: absolute;
-    right: 10px;
-    bottom: 15px;
+    // position: absolute;
+    // right: 10px;
+    // bottom: 15px;
   }
   .user-photo {
-  position: absolute;
-  top: 15px;
-  right: 10px;
+    margin: 0 auto;
+    height: 150px;
+    width: 150px;
   }
   .user-info {
-    padding: 5px;
-    margin-right: 5px;
-    p {
-      font-size: 14px;
+    text-align: center;
+    padding: 15px;
+    .user-card-username {
+      font-size: 24px;
+      font-weight: 200;
+    }
+    .user-card-label {
+      font-size: 10px;
+    }
+    .user-card-data {
+      font-size: 16px;
     }
   }
 }
-
-.reservation_card {
-  background-color: #F7F7F7;
-  border-radius: 10px;
-  border: 1px solid #b88525;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  padding: 30px;
-  position: relative;
-  .reservation-content {
-    flex: 1 1 0;
-    padding-left: 20px;
-    p {
-      font-size: 17px;
-    }
-    a {
-      font-size: 14px;
-    }
-  }
-  .reservation-status {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    p {
-      color: #b88525;
-      font-size: 13px;
-    }
-  }
+.reservation-dates {
+  color: #3e3e3e;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
 }
-
+.reservation-number {
+  position: absolute;
+  top: -210px;
+  color: #3e3e3e;
+}
+.reservation-status {
+  position: absolute;
+  top: -210px;
+  right: 0;
+  color: #3e3e3e;
+}
+.reservation-card-padding-on-top {
+  padding-top: 40px;
+}
+.add-boat-button-user-page {
+  padding: 20px;
+}
