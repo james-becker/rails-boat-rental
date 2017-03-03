@@ -1,1 +1,37 @@
-.
+.watermark {
+  text-align: center;
+  font-size: 200px;
+  color: rgba(229, 222, 199, 0.45);
+  vertical-align: middle;
+  margin: 0 auto;
+}
+
+.watermark-small {
+  text-align: center;
+  font-size: 100px;
+  color: rgba(229, 222, 199, 0.45);
+  vertical-align: middle;
+  margin: 0 auto;
+}
+
+.watermark-text {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 24px;
+  color: rgba(150, 150, 150, 0.65);
+  a {
+    color: rgba(150, 150, 150, 0.65);
+    text-decoration: underline;
+  }
+}
+
+.watermark-text-small {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 18px;
+  color: rgba(150, 150, 150, 0.65);
+  a {
+    color: rgba(150, 150, 150, 0.65);
+    text-decoration: underline;
+  }
+}
