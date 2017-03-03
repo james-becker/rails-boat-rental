@@ -1,3 +1,4 @@
+
 <%= simple_form_for @boat do |f| %>
   <%= f.input :category, class: 'golden-input', collection: Boat::CATEGORIES, label: "Category", include_blank: false %>
   <%= f.input :name, placeholder: "The Black Pearl" %>

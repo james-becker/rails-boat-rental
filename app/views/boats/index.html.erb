@@ -32,9 +32,7 @@
 
 
       <div class="col-sm-8">
-        <div class="boat-search-form">
-          <%= render 'search_bar' %>
-        </div>
+        <%= render 'search_bar' %>
 
         <div class="boat-search-results">
           <% @boats.first(6).each do |boat| %>
