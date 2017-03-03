@@ -7,23 +7,21 @@
     <% if current_user && current_user.id == @user.id %>
 
     <div class="col-sm-8 col-xs-12">
-      <h2> My Trips </h2>
-
-      <div class="row reservation-card-padding-on-top">
+      <div class="row">
         <% @pending_reservations.each do |res| %>
           <% @res = res %>
           <%= render "reservation_card", locals: {res: @res} %>
         <% end %>
       </div>
 
-      <div class="row reservation-card-padding-on-top">
+      <div class="row">
         <% @upcoming_reservations.each do |res| %>
           <% @res = res %>
           <%= render "reservation_card", locals: {res: @res} %>
         <% end %>
       </div>
 
-      <div class="row reservation-card-padding-on-top">
+      <div class="row">
         <% @finished_reservations.each do |res| %>
           <% @res = res %>
           <%= render "reservation_card", locals: {res: @res} %>
