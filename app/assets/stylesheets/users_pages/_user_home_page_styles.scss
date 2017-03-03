@@ -80,4 +80,26 @@
   position: relative;
   height: 65px;
 }
-
+.reservation-dates {
+  color: #3e3e3e;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+}
+.reservation-number {
+  position: absolute;
+  top: -210px;
+  color: #3e3e3e;
+}
+.reservation-status {
+  position: absolute;
+  top: -210px;
+  right: 0;
+  color: #3e3e3e;
+}
+.reservation-card-padding-on-top {
+  padding-top: 40px;
+}
+.add-boat-button-user-page {
+  padding: 20px;
+}
