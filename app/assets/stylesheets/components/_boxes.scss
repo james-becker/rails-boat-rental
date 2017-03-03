@@ -7,5 +7,12 @@
 
 .basic-gold-box {
   padding: 25px;
-  border: 1px solid #b88525;
+  background: rgba(238, 238, 238, 0.85);
+  border-left: rgba(179, 189, 161, 0.898039) solid 10px;
+}
+
+.information-box {
+  padding: 25px;
+  background: rgba(238, 238, 238, 0.85);
+  border: 1px solid #bbbbbb;
 }

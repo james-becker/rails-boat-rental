@@ -1,20 +1,17 @@
-<div class="user-card">
-<div class="user-photo">
-  <%= cl_image_tag @user.photo.path, width: 55, height: 55, crop: :fill, class: "img-circle" %>
-</div>
-<div class="user-info">
-  <p> Hi, I am <%= @user.first_name %> <%= @user.last_name %>. </p>
-  <br>
-  <p> Contact me at: <br> <%= mail_to @user.email %> </p>
-  <br>
-  <% if @user.dob %>
-  <p> Born on <%= @user.dob %> </p>
-  <% end %>
-
-</div>
-
-  <% if current_user && current_user.id == @user.id %>
-    <%= link_to "edit profile", edit_user_registration_path, class: "edit-user" %>
-  <% end %>
-
+<div class="user-card basic-gold-box">
+  <div class="user-photo">
+    <%= cl_image_tag @user.photo.path, width: 150, height: 150, crop: :fill, class: "img-circle" %>
+  </div>
+  <div class="user-info">
+    <span class='user-card-username'><%= @user.first_name %> <%= @user.last_name %></span>
+    <br>
+     <span class='user-card-label'>email:</span><span class='user-card-data'> <%= mail_to @user.email %> </span>
+    <% if @user.dob %>
+    <br>
+      <span class='user-card-label'>date of birth:</span><span class='user-card-data'> <%= @user.dob %> </span>
+    <% end %>
+  </div>
+    <% if current_user && current_user.id == @user.id %>
+      <%= link_to "edit profile", edit_user_registration_path, class: "edit-user" %>
+    <% end %>
 </div>

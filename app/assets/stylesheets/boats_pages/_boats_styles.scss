@@ -1,7 +1,7 @@
 @mixin max-width($width) {
-    @media screen and (max-width: $width) {
-        @content;
-    }
+  @media screen and (max-width: $width) {
+    @content;
+  }
 }
 
 .boat-search-result-card {
@@ -20,28 +20,28 @@
     min-width: 250px;
     display: relative;
     border-bottom: #b88525 solid 1px;
-}
+  }
 
 .boat-search-card-info {
   position: relative;
   height: 65px;
 }
 
-@include max-width(992px) {
+  @include max-width(992px) {
     .boat-search-result-card {
-        flex-basis: 33%;
+      flex-basis: 33%;
     }
-}
+  }
 
-@include max-width(640px) {
+  @include max-width(640px) {
     .boat-search-result-card {
-        flex-basis: 33%;
+      flex-basis: 33%;
     }
-}
+  }
 
-.boat-search-results {
-  display: flex;
-  flex-flow: row wrap;
+  .boat-search-results {
+    display: flex;
+    flex-flow: row wrap;
   // max-width: 800px;
   // -webkit-align-items: flex-start;
   // align-items: flex-start;
@@ -78,4 +78,31 @@
 }
 
 .boat-index-row {
+}
+
+
+// Boats Show Page :
+.carousel-div {
+background-color: #F7F7F7;
+width:100vw;
+}
+
+
+#carousel-example-generic {
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 400px;
+  width:1000px;
+  margin-top: 100px;
+  padding-bottom: 30px;
+}
+
+
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    max-width: 100%;
+    width: 1000px;
+    height: 400px;
+    line-height: 1;
 }

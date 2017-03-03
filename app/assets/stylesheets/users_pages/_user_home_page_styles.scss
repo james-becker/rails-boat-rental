@@ -1,56 +1,83 @@
 .user-card {
-  background-color: #F7F7F7;
-  position: relative;
-  border: 1px solid #b88525;
-  border-radius: 3px;
-  padding: 10px;
+  // background-color: #F7F7F7;
+  // position: relative;
+  // border: 1px solid #b88525;
+  // border-radius: 3px;
+  // padding: 10px;
+  // height: 300px;
+  text-align: center;
   .edit-user {
     font-size: 12px;
-    position: absolute;
-    right: 10px;
-    bottom: 15px;
+    // position: absolute;
+    // right: 10px;
+    // bottom: 15px;
   }
   .user-photo {
-  position: absolute;
-  top: 15px;
-  right: 10px;
+    margin: 0 auto;
+    height: 150px;
+    width: 150px;
   }
   .user-info {
-    padding: 5px;
-    margin-right: 5px;
-    p {
-      font-size: 14px;
+    text-align: center;
+    padding: 15px;
+    .user-card-username {
+      font-size: 24px;
+      font-weight: 200;
+    }
+    .user-card-label {
+      font-size: 10px;
+    }
+    .user-card-data {
+      font-size: 16px;
     }
   }
 }
+.reservation-dates {
+  color: #3e3e3e;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+}
+.reservation-number {
+  position: absolute;
+  top: 0;
+  right:0;
+  color: #3e3e3e;
+}
+.reservation-status {
+  position: absolute;
+  top: -240px;
+  right: 0;
+  color: #3e3e3e;
+  font-size: 40px;
+}
 
-.reservation_card {
-  background-color: #F7F7F7;
-  border-radius: 10px;
-  border: 1px solid #b88525;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  padding: 30px;
+.add-boat-button-user-page {
+  padding: 20px;
+}
+
+.reservation-card {
+    // Flexbox tutorial
+    box-sizing: border-box;
+    padding: 0px;
+    flex: 1;
+
+    // Ours
+    background-size: cover;
+    border-radius: 0;
+    color:#A7A8B6;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    height: 250px;
+    min-width: 250px;
+    display: relative;
+    border-bottom: #b88525 solid 1px;
+    margin-top: 60px;
+    margin-left: 10px;
+    margin-bottom: 120px;
+}
+
+.reservation-card-info {
   position: relative;
-  .reservation-content {
-    flex: 1 1 0;
-    padding-left: 20px;
-    p {
-      font-size: 17px;
-    }
-    a {
-      font-size: 14px;
-    }
-  }
-  .reservation-status {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    p {
-      color: #b88525;
-      font-size: 13px;
-    }
-  }
+  height: 65px;
 }
 
