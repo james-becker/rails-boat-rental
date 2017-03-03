@@ -22,9 +22,21 @@ require 'faker'
       "With 16 meters length, this #{boat.name} offers a perfect design that combines tradition with modern international class. She also has low fuel consumption, making it an ideal holiday yacht for sailing the Mediterranean. She can accommodates nine passengers during the day and six guests at night in three double cabins, one of them is en suite. She also has a lounge equipped with TV, DVD and CD radio.",
       "The #{boat.name} expresses exclusivity and elegance in it's 38 meters length. With capacity for 12 guests during the day and 12 at night in 5 luxury ensuite cabins. Equipped with jacuzzi, stabilizers and a big variety of toys. The flagship of the SD line is a four-decked motor yacht with an exquisite distribution that allows you to enjoy every zone in the yacht."].sample
     boat.user = user
-    boat.photo_urls = ["http://res.cloudinary.com/demo/image/fetch/http://www.charteranddreams.com/media/products/161/san-lorenzo-126-san-lorenzo-126-a1253330-f.jpg",
+    boat.photo_urls = [["http://res.cloudinary.com/demo/image/fetch/http://www.charteranddreams.com/media/products/161/san-lorenzo-126-san-lorenzo-126-a1253330-f.jpg",
       "http://res.cloudinary.com/demo/image/fetch/http://www.charteranddreams.com/media/products/2/admiral-154-admiral-154-8e03a178-6.jpeg",
-      "http://res.cloudinary.com/demo/image/fetch/http://www.charteranddreams.com/media/products/2/admiral-154-admiral-154-693a3c47-5.jpg"]
+      "http://res.cloudinary.com/demo/image/fetch/http://www.charteranddreams.com/media/products/2/admiral-154-admiral-154-693a3c47-5.jpg"],
+      ["http://res.cloudinary.com/demo/image/fetch/http://www.charteranddreams.com/media/products/62/lagoon-500-lagoon-500-b3f19886-b.jpg",
+      "http://res.cloudinary.com/demo/image/fetch/http://www.charteranddreams.com/media/products/61/lagoon-440-lagoon-440-0dcef2b1-5.jpg",
+      "http://res.cloudinary.com/demo/image/fetch/http://www.charteranddreams.com/media/products/63/lagoon-500-lagoon-500-cf2ec01d-0.jpg"],
+      ["http://res.cloudinary.com/demo/image/fetch/https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Jet_ski_at_Eforie_Nord%2C_Romania_%282%29.JPG/1600px-Jet_ski_at_Eforie_Nord%2C_Romania_%282%29.JPG",
+      "http://res.cloudinary.com/demo/image/fetch/http://jennyvaldez.com/images/boatandwatercraft/yamaha-waverunner/jet-ski-rentals1678-x-1114-286-kb-jpeg-x.jpg",
+      "http://res.cloudinary.com/demo/image/fetch/http://www.moto123.com/ArtImages/100280/2008-Jet-Ski-STX-15F-i02.jpg"],
+          ["http://res.cloudinary.com/demo/image/fetch/https://s-media-cache-ak0.pinimg.com/originals/3c/29/10/3c2910dffa16c4a0b6628333f266cbdf.jpg",
+      "http://res.cloudinary.com/demo/image/fetch/https://getmyboat-user-images2.imgix.net/images/533537422450e/processed.jpeg",
+      "http://res.cloudinary.com/demo/image/fetch/https://cdn.drivemag.net/media/default/0001/15/thumb_14640_default_large.jpeg"]].sample
+
+
+
     boat.save!
   end
 
