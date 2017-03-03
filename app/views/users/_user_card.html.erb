@@ -11,9 +11,7 @@
       <span class='user-card-label'>date of birth:</span><span class='user-card-data'> <%= @user.dob %> </span>
     <% end %>
   </div>
-
     <% if current_user && current_user.id == @user.id %>
       <%= link_to "edit profile", edit_user_registration_path, class: "edit-user" %>
     <% end %>
-
 </div>

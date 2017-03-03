@@ -1,0 +1,10 @@
+<div class="user-card basic-gold-box">
+  <div class="user-photo">
+    <%= cl_image_tag @reservation.boat.user.photo.path, width: 150, height: 150, crop: :fill, class: "img-circle" %>
+  </div>
+  <div class="user-info">
+    <span class='user-card-username'><%= @reservation.boat.user.first_name %> <%= @reservation.boat.user.last_name %></span>, Owner
+    <br>
+     <span class='user-card-label'>email:</span><span class='user-card-data'> <%= mail_to @reservation.boat.user.email %> </span>
+  </div>
+</div>

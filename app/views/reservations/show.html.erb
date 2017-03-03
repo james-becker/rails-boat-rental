@@ -1,15 +1,25 @@
-<p> Reservation start time</p> <%= @reservation.start_time %>
-<p> Reservation end time</p> <%= @reservation.end_time %>
-<p> Reservation notes</p> <%= @reservation.notes %>
-<p> People for this trip: </p> <%= @reservation.count %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+    <div class="col-sm-4 col-xs-12">
+      <%= render "owner_card", locals: {user: @user} %>
+    </div>
+      <div class="col-xs-12 col-sm-8">
+        <div class="basic-gold-box">
+          <p>From: <%= @reservation.start_time %></p>
+          <p>To: <%= @reservation.end_time %></p>
+          <p>Reservation notes: <%= @reservation.notes %></p>
+          <p>Attendees: <%= @reservation.count %></p>
 
-<p> You are <%= @reservation.status %> with your visit to <%= link_to @reservation.boat.name, @reservation.boat %> </p>
-<%= link_to "edit", edit_reservation_path(@reservation) %>
-<%= link_to "delete", reservation_path(@reservation), method: :delete %>
-<br>
-<% @boat.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
-
-
-
+          <p> You are <%= @reservation.status %> with your visit to <%= link_to @reservation.boat.name, @reservation.boat %> </p>
+          <%= link_to "edit", edit_reservation_path(@reservation) %>
+          <%= link_to "delete", reservation_path(@reservation), method: :delete %>
+          <br>
+          <% @boat.photos.each do |photo| %>
+          <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,20 +9,26 @@
     </div>
 
     <div class="card-boat-rating-box">
+      <% stars = boat_stars(boat) %>
       <% if boat.reviews.average(:stars) %>
-      <div class="card-boat-stars">
-        <% (boat.reviews.average(:stars).round - 1).times do %>
-          <%= image_tag("star", size: "16x16") %>
-        <% end %>
-        <% if boat.reviews.average(:stars).round(2) % 1 > 0 %>
-          <%= image_tag("half-star", size: "16x16") %>
-        <% else %>
-          <%= image_tag("star", size: "16x16") %>
-        <% end %>
-      </div>
-      <div class="card-boat-rating">
-          <%= boat.reviews.average(:stars).round(2) %>
-      </div>
+        <div class="card-boat-stars">
+          <% stars[:full].times do %>
+            <%= image_tag("star", size: "16x16") %>
+          <% end %>
+          <% stars[:half].times do %>
+            <%= image_tag("star-half", size: "16x16") %>
+          <% end %>
+          <% stars[:empty].times do %>
+            <%= image_tag("star-empty", size: "16x16") %>
+          <% end %>
+        </div>
+        <div class="card-boat-rating">
+            <%= boat.reviews.average(:stars).round(2) %>
+        </div>
+      <% else %>
+        <div class="card-boat-stars">
+          <span class='card-no-reviews'>No Reviews</span>
+        </div>
       <% end %>
     </div>
   </div>
