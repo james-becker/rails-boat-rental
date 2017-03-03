@@ -1,8 +1,8 @@
 
 <div class="wrapper">
   <div class="carousel-div">
-  <h3> <%= @boat.name %> </h3>
-  <br>
+    <h3> <%= @boat.name %> </h3>
+    <br>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
      <!-- Indicators -->
      <ol class="carousel-indicators">
@@ -94,9 +94,36 @@
             </div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="basic-gold-box">
+
+            <!-- Show all reviews for this boat  -->
+
+            <div id="reviews">
+             <% if @boat.reviews.blank? %>
+             No review yet for <%= @boat.name %>
+             <% else %>
+             <% @boat.reviews.each do |review| %>
+             <%= render 'reviews/show', review: review %>
+             <% end %>
+             <% end %>
+           </div>
+
+           <div class="review-button">
+
+            <% if @reservation %>
+            <% button_path = new_boat_review_path(@reservation) %>
+
+            <% end %>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

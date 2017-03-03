@@ -23,10 +23,12 @@ class BoatsController < ApplicationController
 
   end
 
-  def show
+def show
     #inspect a specific boat
     @owner = User.find(@boat.user_id)
+    @reservation = Reservation.find_by(user: current_user, status: "past")
     @owner_name = @owner.first_name + @owner.last_name
+    @review = Review.new
   end
 
   def new

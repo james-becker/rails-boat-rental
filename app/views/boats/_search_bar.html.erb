@@ -1,21 +1,23 @@
 
 <%= simple_form_for @boat, :url => boats_path, :method => :get, class: 'form-inline'  do |f| %>
   <div class="row">
-    <div class="col-xs-12 col-sm-8">
-      <%= f.input :location, label_html: { class: 'sr-only' }, placeholder: 'location' %>
+    <div class="boats-search-box">
+      <div class="col-xs-12 col-sm-8">
+        <%= f.input :location, label_html: { class: 'sr-only' }, placeholder: 'location' %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= f.input :price, label_html: { class: 'sr-only' }, placeholder: 'price max'  %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= f.input :category, collection: Boat::CATEGORIES, label_html: { class: 'sr-only' }, prompt: 'category' %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= f.input :capacity, collection: Boat::CAPACITIES, label_html: { class: 'sr-only' }, prompt: 'capacity' %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= f.submit  "Search!", class: 'gold-button-search' %>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <%= f.input :price, label_html: { class: 'sr-only' }, placeholder: 'price max'  %>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <%= f.input :category, collection: Boat::CATEGORIES, label_html: { class: 'sr-only' }, prompt: 'category' %>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <%= f.input :capacity, collection: Boat::CAPACITIES, label_html: { class: 'sr-only' }, prompt: 'capacity' %>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <%= f.submit  "Search!", class: 'gold-button-search' %>
-    </div>
-   </div>
+  </div>
 <% end %>
 
