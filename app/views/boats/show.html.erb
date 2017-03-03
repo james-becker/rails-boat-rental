@@ -54,7 +54,7 @@
             <% @user = @owner %>
             <%= render "users/user_card", locals: {user: @user} %>
             <div class="align-button">
-              <%= button_to "View profile", users_show_profile_path(@user), :class => "btn btn-default button-book-boat", :method => :get %>
+              <%= button_to "View profile", users_show_profile_path(@user), :class => "btn btn-default gold-button button-book-boat", :method => :get %>
             </div>
           </div>
 
@@ -115,7 +115,7 @@
 
             <% unless @reservation.nil? %>
             <!-- To make this button accessible only for ppl who actually rented the boat, do a if condition : if @reservation -->
-            <%= button_to "Post Review", new_boat_review_path(@boat), class: "btn btn-default button-book-boat center-button", method: :get %>
+            <%= button_to "Post Review", new_boat_review_path(@boat), class: "btn btn-default gold-button button-book-boat center-button", method: :get %>
 
             <% end %>
           </div>
