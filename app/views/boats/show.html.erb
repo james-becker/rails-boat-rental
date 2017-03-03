@@ -2,7 +2,8 @@
 <div class="wrapper">
 
   <div class="carousel-div">
-
+  <h3> <%= @boat.name %> </h3>
+  <br>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
      <!-- Indicators -->
      <ol class="carousel-indicators">
@@ -40,21 +41,12 @@
        <span class="sr-only">Next</span>
      </a>
    </div>
-
-
-
  </div>
-
-
-
-
 
 
  <div class="wrapper add-boat-wrapper">
   <div class="container description-boat">
     <div class="row">
-
-
       <div class="container">
         <div class="row">
 
@@ -63,8 +55,8 @@
             <% @user = @owner %>
             <%= render "users/user_card", locals: {user: @user} %>
             <div class="align-button">
-            <%= button_to "View profile", users_show_profile_path(@user), :class => "btn btn-default button-book-boat", :method => :get %>
-          </div>
+              <%= button_to "View profile", users_show_profile_path(@user), :class => "btn btn-default button-book-boat", :method => :get %>
+            </div>
           </div>
 
 
@@ -76,9 +68,6 @@
               <p><%= @boat.price %> per day</p>
 
               <p>Contact <%= link_to @owner_name %></p>
-
-
-
               <div class="row">
 
                 <!-- Code to show buttons on boat page depending on user -->
@@ -107,9 +96,10 @@
           </div>
         </div>
       </div>
+    </div>
   </div>
+</div>
 
 
-
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
